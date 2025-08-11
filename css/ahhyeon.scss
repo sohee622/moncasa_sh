@@ -1,0 +1,236 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Pretendard-400";
+}
+
+#minimal .ex1_banner {
+    width: 670px;
+    flex-shrink: 0;
+
+.img-wrapper {
+      position:fixed;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+#minimal .event_main_title1 {
+  color: #713131;
+  font-size: 100px;
+  font-family: "pretendard-700";
+  line-height: 150%;
+  letter-spacing: -1.1px;
+  margin-left: 64px;
+}
+
+#minimal .event_serve_title1 {
+  color: #713131;
+  font-size: 24px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.10);
+  font-family: "Pretendard-700";
+  line-height: 30px;
+  letter-spacing: -0.264px;
+  margin-left: 55px;
+}
+
+#minimal .event_title1 {
+  font-size: 64px;
+  font-family: "pretendard-700";
+  color: white;
+  text-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+  line-height: normal;
+  margin-bottom: 100px;
+}
+
+#minimal .percent {
+  margin-left: auto;
+  color: white;
+  font-size: 100px;
+  font-family: "Pretendard-700";
+}
+
+// 상품 리스트
+#minimal .badge {
+  background: #713131;
+  color: white;
+  font-size: 15px;
+  width: 55px;
+  height: 55px;
+  z-index: 10;
+}
+
+#minimal .product_set {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+}
+
+#minimal .product-text {
+  width: 300px;
+  height: 56px;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+#minimal .prod_name {
+  font-family: "Pretendard-700";
+  font-size: 25px;
+  width: 300px;
+  height: 18px;
+  gap: 36px;
+  align-self: stretch;
+  color: black;
+}
+
+#minimal .product_price_set {
+  width: 340px;
+  height: 18px;
+  margin-top: 10px;
+
+.prod_cost {
+  align-self: stretch;
+  color: #ADADAD;
+  font-family: "Pretendard-500";
+  font-size: 20px;
+  line-height: normal;
+  text-decoration-line: line-through;
+  }
+
+.prod_price {
+  color: #713131;
+  font-family: "Pretendard-700";
+  font-size: 25px;
+  line-height: normal;
+  }
+}
+
+#minimal .bottom-banner {
+  margin-top: 80px;
+  background-image: url(../img/product/mi_bottom_bg_img.jpg);
+  background-size: cover;
+  background-position: center 46%;
+  background-repeat: no-repeat;
+  padding: 36px 100px;
+  font-size: 35px;
+  color: white;
+  font-family: "Pretendard-600";
+}
+
+#minimal .tag {
+  display: inline-flex;
+  font-family: "pretendard-500";
+  background: #713131;
+  color: white;
+  border-radius: 50px;
+  font-size: 25px;
+  height: fit-content;
+  padding: 5px 20px;
+}
+
+#minimal .bg-img {
+  width: 670px;
+  height: 800px;
+  background: url('../img/product/event1_main.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 40px;
+}
+
+// 스와이퍼
+
+#taste {
+.slide-title {
+    font-size: 38px;
+    font-family: "pretendard-700";
+}
+
+.slide_mid_title {
+    font-size: 16px;
+    color: #999;
+    margin-left: 110px;
+}
+
+.slide-question {
+    font-family: "Pretendard-700";
+    font-size: 30px;
+    line-height: normal;
+}
+
+.swiper-scrollbar {
+    width: 500px;
+    height: 2px;
+    background: #ddd;
+}
+
+.swiper-pagination {
+    font-size: 14px;
+    color: #333;
+    min-width: 40px;
+    white-space: nowrap;
+}
+
+.options {
+    gap: 35px;
+    padding-top: 140px;
+}
+
+.option-btn {
+    border: 2px solid #909090;
+    padding: 20px 90px;
+    transition: all 0.3s;
+    font-family: "pretendard-600";
+}
+
+.option-btn:hover {
+    background-color: #eee;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: black;
+    top: calc(50% + 3.5rem);
+    z-index: 10;
+}
+
+.swiper-button-prev {
+    left: 20px;
+}
+
+.swiper-button-next {
+    right: 20px;
+}
+
+.top_fixed_box {
+    z-index: 10;
+}
+
+.progress-fixed-wrapper {
+    gap: 10px;
+    width: 400px;
+    top: calc(50% + 2.5rem);
+    left: 108px;
+}
+
+.taste_icon {
+    width:68.333px;
+    height:50px;
+    
+}
+
+.q_num {
+  color: #713131;
+  font-family: "pretendard-700";
+}
+
+.icon_text {
+  font-size: 18px;
+  font-family: "pretendard-500";
+  line-height: normal;
+}
+
+.position-unset{
+    position: unset !important;
+}
+}

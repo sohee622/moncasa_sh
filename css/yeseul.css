@@ -1,0 +1,39 @@
+.max-width{
+    width:1500px;
+}
+#yeseul .img3list ul{
+    gap: 20px;
+    list-style: none;
+}
+#yeseul .img3title p{
+    font-size: 17px;   
+    color: #000000;
+    opacity: 50%;
+    font-weight: 500;
+    line-height: 20px;
+
+}
+#yeseul .content-container {
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;    
+    justify-content: center; /* 수직 중앙 정렬 */
+}
+#yeseul  .img3title h3{
+    font-size: 50px;
+    color: #000000;
+    font-weight: 700;
+}
+
+#yeseul  button{
+    width: 173px;
+    height: 68px;
+    background-color: #713131;
+    appearance: 150px;   
+    border-radius: 150px;    
+    font-size: 20px;   
+    color: #FFFFFF;
+    font-weight: 600;
+    border:0;  
+  }

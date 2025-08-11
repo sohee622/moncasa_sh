@@ -1,0 +1,214 @@
+// 변수
+$main-color: var(--main--point-color);
+$text-main: #713131;
+$text-white: #ffffff;
+
+
+// 기본 스타일
+dl, ol, ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ol, ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.row {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+/* gnb */
+.container_fluid {
+  background-color: $main-color;
+  height: 130px;
+  padding: 0 110px;
+
+  .gnb {
+    gap: 55px;
+
+    .gnb_li_a {
+      font-size: 25px;
+    }
+
+    .gnb_li_a_bold {
+      font-size: 25px;
+    }
+  }
+}
+
+.global_bt {
+  font-size: 20px;
+  gap: 5px;
+  padding: 10px 20px;
+  background-color: transparent;
+  border-radius: 50px;
+  border: white solid 1.5px;
+  margin-left: 25px;
+
+  svg.global_icon {
+    transition: fill 0.2s ease;
+    color: currentColor;
+  }
+
+  &:hover {
+    background-color: white !important;
+    color: var(--main--point-color) !important;
+    
+    svg.global_icon {
+      color: currentColor;
+    }
+  }
+}
+
+
+// main banner
+.scalebanner {
+  > * {
+    padding: 2vw;
+    height: 1080px;
+    background-size: 100%;
+    background-position: center;
+    transition: all 0.25s ease;
+
+    &:hover {
+      background-size: 120%;
+    }
+  }
+
+  .scalechild1 {
+    background-image: url(../img/minimal_size.jpg);
+
+    h3 {
+      font-family: "Pretendard-700";
+      font-size: 150px;
+      color: $text-main;
+      letter-spacing: -0.64px;
+    }
+
+    p {
+      font-family: "Pretendard-700";
+      font-size: 64px;
+      color: $text-main;
+      letter-spacing: -0.6px;
+    }
+
+    span {
+      font-family: "Pretendard-400";
+      font-size: 30px;
+      color: $text-main;
+      line-height: normal;
+    }
+  }
+
+  .scalechild2 {
+    background-image: url(../img/upcycling_size.jpg);
+
+    h3 {
+      font-family: "Pretendard-700";
+      font-size: 150px;
+      transform: rotate(-90deg);
+      left: -40%;
+      top: 24%;
+    }
+
+    p {
+      font-family: "Pretendard-700";
+      font-size: 64px;
+    }
+
+    span {
+      font-family: "Pretendard-400";
+      font-size: 30px;
+      margin-bottom: 120px;
+    }
+  }
+
+  .scalechild3 {
+    background-image: url(../img/primium_size.jpg);
+
+    h3 {
+      font-family: "Pretendard-700";
+      font-size: 130px;
+    }
+
+    p {
+      font-family: "Pretendard-700";
+      font-size: 64px;
+      letter-spacing: -0.64px;
+    }
+
+    span {
+      font-family: "Pretendard-400";
+      font-size: 30px;
+    }
+  }
+}
+
+
+// Premium Planning
+.event_section3 {
+  background-image: url(../img/premium_planning.jpg);
+  background-position: bottom right;
+}
+.event3 {
+  height: 500px;
+  padding: 2vw;
+
+  &::after {
+    font-family: "Pretendard-700";
+    content: 'Premium ~20%';
+    font-size: 6.25rem;
+    color: #ffffff;
+    opacity: 0.9;
+    text-align: right;
+    letter-spacing: -1.1px;
+    position: absolute;
+    right: 2vw;
+    bottom: 1vw;
+  }
+
+  .event_main_title3 {
+    font-family: "Pretendard-700";
+    font-size: 3.125rem;
+    letter-spacing: -0.55px;
+    line-height: 1.3;
+  }
+
+  .event_title3 {
+    font-family: "Pretendard-500";
+    font-size: 2.188rem;
+    opacity: 0.7;
+    letter-spacing: -0.385px;
+  }
+}
+
+.tag {
+  background-color: var(--main--point-color);
+  margin-top: 0.5rem;
+}
+
+// Product
+.premium_mySwiper {
+  margin: 70px auto 0;
+  padding: 0 50px;
+
+  .swiper-slide {
+    width: 300px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #ADADAD;
+  }
+}
+
+.img {
+  background-color: #F5F5F5;
+  width: 300px;
+  height: 300px;
+}
+
