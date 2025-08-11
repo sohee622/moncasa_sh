@@ -1,5 +1,3 @@
-
-
 // 기본 스타일
 dl, ol, ul {
   margin-top: 0;
@@ -52,7 +50,7 @@ ol, ul {
 
   &:hover {
     background-color: white !important;
-    color: var(--main--point-color) !important;
+    color: $mainColor !important;
     
     svg.global_icon {
       color: currentColor;
@@ -93,7 +91,7 @@ ol, ul {
     }
 
     span {
-      font-family: "Pretendard-400";
+      font-family: $mainFont400;
       font-size: 30px;
       color: $mainColor;
       line-height: normal;
@@ -117,7 +115,7 @@ ol, ul {
     }
 
     span {
-      font-family: "Pretendard-400";
+      font-family: $mainFont400;
       font-size: 30px;
       margin-bottom: 120px;
     }
@@ -138,7 +136,7 @@ ol, ul {
     }
 
     span {
-      font-family: "Pretendard-400";
+      font-family: $mainFont400;
       font-size: 30px;
     }
   }
@@ -183,7 +181,7 @@ ol, ul {
 }
 
 .tag {
-  background-color: var(--main--point-color);
+  background-color: $mainColor;
   margin-top: 0.5rem;
 }
 

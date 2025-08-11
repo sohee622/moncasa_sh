@@ -975,7 +975,7 @@ ol, ul {
 }
 .global_bt:hover {
   background-color: white !important;
-  color: var(--main--point-color) !important;
+  color: #713131 !important;
 }
 .global_bt:hover svg.global_icon {
   color: currentColor;
@@ -1083,7 +1083,7 @@ ol, ul {
 }
 
 .tag {
-  background-color: var(--main--point-color);
+  background-color: #713131;
   margin-top: 0.5rem;
 }
 
@@ -1126,17 +1126,13 @@ ol, ul {
   flex-direction: column;
   width: 260px;
   gap: 50px;
-  justify-content: center;
 }
 #yeseul button {
   width: 173px;
   height: 68px;
   background-color: #713131;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  font-family: "Pretendard-600";
   border-radius: 150px;
   font-size: 20px;
-  font-weight: 600;
   border: 0;
 }
