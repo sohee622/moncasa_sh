@@ -1,51 +1,64 @@
-// 변수 정의 (예시)
-:root {
-  --basic--text: #000;
-  --main--point-color: #713131;
+$basicText: #000;
+$mainColor: #713131;
+
+$mainFont100: "Pretendard-100";
+$mainFont200: "Pretendard-200";
+$mainFont300: "Pretendard-300";
+$mainFont400: "Pretendard-400";
+$mainFont500: "Pretendard-500";
+$mainFont700: "Pretendard-700";
+$mainFont800: "Pretendard-800";
+$mainFont900: "Pretendard-900";
+
+$mainMaxwidth: 1450px;//1450
+$smMaxwidth: 1280px;//1280
+$bigMaxwidth: 1650px;//1650
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
 
 // Reset
 html, body {
   margin: 0;
   padding: 0;
-  width: 100%;
   overflow-x: hidden;
 }
-h3, p {
+h1, h2, h3, h4, h5, ul, li, dl, dt, dd, p {
   margin: 0;
+  padding: 0;
 }
 a {
   text-decoration: none;
-  color: var(--basic--text);
+  color: $basicText;
 }
+
 
 // 유틸리티 클래스
 .line-height-1 { line-height: 1; }
 
-@for $i from 1 through 9 {
-  .fw-#{$i}00 {
-    font-weight: #{$i}00 !important;
-  }
-}
 
 // 컨테이너
 .container_1280 {
-  max-width: 1280px;
+  max-width: $smMaxwidth;
   margin: 0 auto;
 }
 
 .container_1450 {
-  max-width: 1450px;
+  max-width: $mainMaxwidth;
   margin: 0 auto;
 }
 
 .container_1650 {
-  max-width: 1650px;
-  margin: 0 auto;
-}
-
-.container_1920 {
-  max-width: 1920px;
+  max-width: $bigMaxwidth;
   margin: 0 auto;
 }
 
@@ -62,14 +75,11 @@ a {
   @media (min-width: 1650px) {
     padding: 100px 0;
   }
-    @media (min-width: 1920px) {
-    padding: 100px 0;
-  }
 }
 
 // 태그 배지 스타일
 .tag {
-  font-family: "Pretendard-500";
+  font-family: $mainFont500;
   border-radius: 30px;
   padding: 10px 20px;
   color: #fff;
@@ -85,7 +95,7 @@ a {
   margin-top: 20px;
 
   .prod_name {
-    font-family: "Pretendard-700";
+    font-family: $mainFont700;
     font-size: 25px;
     margin-top: 19.495px;
   }
@@ -95,38 +105,34 @@ a {
   }
 
   .prod_cost {
-    font-family: "Pretendard-500";
+    font-family: $mainFont500;
     font-size: 20px;
     color: #adadad;
     text-decoration: line-through;
   }
 
   .prod_price {
-    font-family: "Pretendard-700";
+    font-family: $mainFont700;
     font-size: 25px;
-    color: var(--main--point-color);
+    color: $mainFont700;
   }
 }
 
 // 아이콘 그룹
 .icon_group {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
   bottom: 10px;
   right: 10px;
   gap: 5px;
-  font-family: "Pretendard-700";
-  color: white;
+  font-family: $mainFont700;
+ 
   font-size: 15px;
 
   strong {
     width: 55px;
     height: 55px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
   }
 
   .eco {
@@ -134,25 +140,11 @@ a {
   }
 
   .sale {
-    background-color: var(--main--point-color);
+    background-color: $mainColor;
   }
 }
 
 
-// 푸터
-.footer {
-  font-size: 10px;
-  color: white;
 
-  &_wrapper {
-    padding-top: 180px;
-    padding-bottom: 100px;
-  }
-
-  &_customer_center {
-    font-size: 20px;
-    color: white;
-  }
-}
 
 

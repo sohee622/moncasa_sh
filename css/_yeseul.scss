@@ -1,0 +1,43 @@
+#yeseul {
+  .img3list {
+    ul {
+      gap: 20px;
+      list-style: none;
+    }
+  }
+
+  .img3title {
+    p {
+      font-size: 17px;
+      color: $basicText;
+      opacity: 50%;
+      font-family: $mainFont500;
+      line-height: 20px;
+    }
+
+    h3 {
+      font-size: 50px;
+      color: $basicText;
+      font-family: $mainFont700;
+    }
+  }
+
+  .content-container {
+    @include flex-column;
+    width: 260px;
+    gap: 50px;
+    justify-content: center; // 수직 중앙 정렬
+  }
+
+  button {
+    width: 173px;
+    height: 68px;
+    background-color: $mainColor;
+    appearance: none; // 기존 150px 값은 잘못된 속성이라 제거
+    border-radius: 150px;
+    font-size: 20px;
+    font-weight: 600;
+    border: 0;
+  }
+}
+

@@ -1,7 +1,3 @@
-// 변수
-$main-color: var(--main--point-color);
-$text-main: #713131;
-$text-white: #ffffff;
 
 
 // 기본 스타일
@@ -23,7 +19,7 @@ ol, ul {
 
 /* gnb */
 .container_fluid {
-  background-color: $main-color;
+  background-color: $mainColor;
   height: 130px;
   padding: 0 110px;
 
@@ -83,23 +79,23 @@ ol, ul {
     background-image: url(../img/minimal_size.jpg);
 
     h3 {
-      font-family: "Pretendard-700";
+      font-family: $mainFont700;
       font-size: 150px;
-      color: $text-main;
+      color: $mainColor;
       letter-spacing: -0.64px;
     }
 
     p {
-      font-family: "Pretendard-700";
+      font-family: $mainFont700;
       font-size: 64px;
-      color: $text-main;
+      color: $mainColor;
       letter-spacing: -0.6px;
     }
 
     span {
       font-family: "Pretendard-400";
       font-size: 30px;
-      color: $text-main;
+      color: $mainColor;
       line-height: normal;
     }
   }
@@ -108,7 +104,7 @@ ol, ul {
     background-image: url(../img/upcycling_size.jpg);
 
     h3 {
-      font-family: "Pretendard-700";
+      font-family: $mainFont700;
       font-size: 150px;
       transform: rotate(-90deg);
       left: -40%;
@@ -116,7 +112,7 @@ ol, ul {
     }
 
     p {
-      font-family: "Pretendard-700";
+      font-family: $mainFont700;
       font-size: 64px;
     }
 
@@ -131,12 +127,12 @@ ol, ul {
     background-image: url(../img/primium_size.jpg);
 
     h3 {
-      font-family: "Pretendard-700";
+      font-family: $mainFont700;
       font-size: 130px;
     }
 
     p {
-      font-family: "Pretendard-700";
+      font-family: $mainFont700;
       font-size: 64px;
       letter-spacing: -0.64px;
     }
@@ -159,7 +155,7 @@ ol, ul {
   padding: 2vw;
 
   &::after {
-    font-family: "Pretendard-700";
+    font-family: $mainFont700;
     content: 'Premium ~20%';
     font-size: 6.25rem;
     color: #ffffff;
@@ -172,14 +168,14 @@ ol, ul {
   }
 
   .event_main_title3 {
-    font-family: "Pretendard-700";
+    font-family: $mainFont700;
     font-size: 3.125rem;
     letter-spacing: -0.55px;
     line-height: 1.3;
   }
 
   .event_title3 {
-    font-family: "Pretendard-500";
+    font-family: $mainFont500;
     font-size: 2.188rem;
     opacity: 0.7;
     letter-spacing: -0.385px;
