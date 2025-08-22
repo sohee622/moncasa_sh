@@ -1088,16 +1088,24 @@ ol, ul {
   .scalebanner {
     height: 799px;
   }
-  .scalebanner .scalechild1, .scalebanner .scalechild2, .scalebanner .scalechild3 {
+  .scalebanner .scalechild1,
+  .scalebanner .scalechild2,
+  .scalebanner .scalechild3 {
     height: 100%;
   }
-  .scalebanner .scalechild1 h3, .scalebanner .scalechild2 h3, .scalebanner .scalechild3 h3 {
+  .scalebanner .scalechild1 h3,
+  .scalebanner .scalechild2 h3,
+  .scalebanner .scalechild3 h3 {
     font-size: 100px;
   }
-  .scalebanner .scalechild1 p, .scalebanner .scalechild2 p, .scalebanner .scalechild3 p {
+  .scalebanner .scalechild1 p,
+  .scalebanner .scalechild2 p,
+  .scalebanner .scalechild3 p {
     font-size: 60px;
   }
-  .scalebanner .scalechild1 span, .scalebanner .scalechild2 span, .scalebanner .scalechild3 span {
+  .scalebanner .scalechild1 span,
+  .scalebanner .scalechild2 span,
+  .scalebanner .scalechild3 span {
     font-size: 30px;
     margin-bottom: 20px;
   }
@@ -1120,22 +1128,34 @@ ol, ul {
   #event .scalebanner {
     height: 499px;
   }
-  #event .scalebanner .scalechild1 h3, #event .scalebanner .scalechild2 h3, #event .scalebanner .scalechild3 h3 {
+  #event .scalebanner .scalechild1 h3,
+  #event .scalebanner .scalechild2 h3,
+  #event .scalebanner .scalechild3 h3 {
     margin-top: 0px;
   }
-  #event .scalechild1 h3, #event .scalechild2 h3, #event .scalechild3 h3 {
+  #event .scalechild1 h3,
+  #event .scalechild2 h3,
+  #event .scalechild3 h3 {
     font-size: 70px;
   }
-  #event .scalechild1 p, #event .scalechild2 p, #event .scalechild3 p {
+  #event .scalechild1 p,
+  #event .scalechild2 p,
+  #event .scalechild3 p {
     font-size: 35px;
   }
-  #event .scalechild1 span, #event .scalechild2 span, #event .scalechild3 span {
+  #event .scalechild1 span,
+  #event .scalechild2 span,
+  #event .scalechild3 span {
     font-size: 20px;
   }
-  #event .scalechild2, #event .scalechild3 {
+  #event .scalechild2,
+  #event .scalechild3 {
     justify-content: end;
   }
-  #event .scalechild2 span, #event .scalechild2 p, #event .scalechild3 span, #event .scalechild3 p {
+  #event .scalechild2 span,
+  #event .scalechild2 p,
+  #event .scalechild3 span,
+  #event .scalechild3 p {
     margin-top: initial !important;
     margin-bottom: 5px !important;
   }
@@ -1237,7 +1257,7 @@ ol, ul {
   }
   .event3 {
     height: 588px;
-    padding: 5vw 5vw;
+    padding: 5vw;
   }
   .event3::after {
     font-size: clamp(40px, 40px + 40 * (100vw - 425px) / 343, 80px);
@@ -1294,8 +1314,13 @@ ol, ul {
     font-size: 18px;
     margin-top: 10px;
   }
-  .img {
+  .img, .logo {
     width: 200px;
+  }
+  .logo {
+    height: auto;
+  }
+  .img {
     height: 200px;
   }
   .icon_group {
@@ -1320,18 +1345,26 @@ ol, ul {
   #event .scalebanner {
     height: 848px;
   }
-  #event .scalebanner .scalechild1, #event .scalebanner .scalechild2, #event .scalebanner .scalechild3 {
+  #event .scalebanner .scalechild1,
+  #event .scalebanner .scalechild2,
+  #event .scalebanner .scalechild3 {
     height: 100%;
     padding: 2rem;
   }
-  #event .scalebanner .scalechild1 h3, #event .scalebanner .scalechild2 h3, #event .scalebanner .scalechild3 h3 {
+  #event .scalebanner .scalechild1 h3,
+  #event .scalebanner .scalechild2 h3,
+  #event .scalebanner .scalechild3 h3 {
     font-size: 130px;
   }
-  #event .scalebanner .scalechild1 p, #event .scalebanner .scalechild2 p, #event .scalebanner .scalechild3 p {
+  #event .scalebanner .scalechild1 p,
+  #event .scalebanner .scalechild2 p,
+  #event .scalebanner .scalechild3 p {
     font-size: 60px;
     line-height: -0.9;
   }
-  #event .scalebanner .scalechild1 span, #event .scalebanner .scalechild2 span, #event .scalebanner .scalechild3 span {
+  #event .scalebanner .scalechild1 span,
+  #event .scalebanner .scalechild2 span,
+  #event .scalebanner .scalechild3 span {
     font-size: 30px;
     line-height: 1.5;
     margin-bottom: 20px;
@@ -1351,7 +1384,7 @@ ol, ul {
     height: 5px;
     background-color: #ADADAD;
     border-radius: 0;
-    margin: 0 0;
+    margin: 0;
   }
 }
 @media (max-width: 575px) {
@@ -1413,8 +1446,13 @@ ol, ul {
     font-size: 14px;
     margin-top: 10px;
   }
-  .img {
+  .img, .logo {
     width: 145px;
+  }
+  .logo {
+    height: auto;
+  }
+  .img {
     height: 145px;
   }
   .icon_group {
@@ -1426,10 +1464,6 @@ ol, ul {
   .icon_group strong {
     width: 26px;
     height: 26px;
-  }
-  .logo {
-    width: 150px;
-    height: auto;
   }
   .gnb .gnb_li_a {
     font-size: 14px;
@@ -1455,13 +1489,19 @@ ol, ul {
   #event .scalebanner {
     height: 600px;
   }
-  #event .scalebanner .scalechild1 h3, #event .scalebanner .scalechild2 h3, #event .scalebanner .scalechild3 h3 {
+  #event .scalebanner .scalechild1 h3,
+  #event .scalebanner .scalechild2 h3,
+  #event .scalebanner .scalechild3 h3 {
     font-size: 70px;
   }
-  #event .scalebanner .scalechild1 p, #event .scalebanner .scalechild2 p, #event .scalebanner .scalechild3 p {
+  #event .scalebanner .scalechild1 p,
+  #event .scalebanner .scalechild2 p,
+  #event .scalebanner .scalechild3 p {
     font-size: 40px;
   }
-  #event .scalebanner .scalechild1 span, #event .scalebanner .scalechild2 span, #event .scalebanner .scalechild3 span {
+  #event .scalebanner .scalechild1 span,
+  #event .scalebanner .scalechild2 span,
+  #event .scalebanner .scalechild3 span {
     font-size: 20px;
   }
 }
