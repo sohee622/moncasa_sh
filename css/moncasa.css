@@ -1444,6 +1444,12 @@ ol, ul {
     width: 23px;
     height: 22px;
   }
+  #event {
+    margin-top: 133px;
+  }
+  #event .scalebanner {
+    height: 600px;
+  }
   #event .scalebanner .scalechild1 h3, #event .scalebanner .scalechild2 h3, #event .scalebanner .scalechild3 h3 {
     font-size: 70px;
   }
