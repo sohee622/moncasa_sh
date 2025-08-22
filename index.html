@@ -1,0 +1,1383 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        
+        <!-- 파비콘 -->
+        <link rel="shortcut icon" type="image/x-icon" href="https://mun-sunghyun.github.io/moncasa_signature_webapp/img/logo/favicon.png" />
+     
+        <!-- 바로가기 -->
+        <link rel="apple-touch-icon" href="https://mun-sunghyun.github.io/moncasa_signature_webapp/img/logo/icon.png" /> 
+        <link rel="apple-touch-icon-precomposed" href="https://mun-sunghyun.github.io/moncasa_signature_webapp/img/logo/icon.png">
+        <meta name="msapplication-TileImage" content="https://mun-sunghyun.github.io/moncasa_signature_webapp/img/logo/icon.png" size="270x270" />
+        <meta name="msapplication-TileImage" content="https://mun-sunghyun.github.io/moncasa_signature_webapp/img/logo/icon.png" size="270x270" /><meta name="description" content="설명" /> 
+        
+        <!-- SEO 최적화 -->
+        <meta property="og:locale" content="ko_KR" />    
+        <meta property="og:site_name" content="MONCASA" />    
+        <meta property="og:url" content="https://mun-sunghyun.github.io/moncasa_signature_webapp/"/>    
+        <meta property="og:type" content="website" />    
+        <meta property="og:title" content="MONCASA" />    
+        <meta property="og:description" content="몬까사, 포근함을 완성하다" />    
+        <meta property="og:image" content="https://mun-sunghyun.github.io/moncasa_signature_webapp/img/logo/seo.jpg" /><meta name="twitter:title" content="MONCASA" />    
+        <meta name="twitter:description" content="몬까사, 포근함을 완성하다" />   
+        <meta name="twitter:image" content="https://mun-sunghyun.github.io/moncasa_signature_webapp/img/logo/seo.jpg" />
+        <title>MONCASA, 포근함을 완성하다</title>
+
+        <!-- 폰트 CDN / reset / 그리드 / 공통 클래스 -->
+        <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+        <!-- swiper css -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <link rel="stylesheet" href="./vendor/bt.css">
+        <link rel="stylesheet" href="./css/font.css">
+        <link rel="stylesheet" href="./css/moncasa.min.css">
+
+        <script>
+            const gnbItems = [
+                { label: "미니멀", href: "#minimal" },
+                { label: "친환경", href: "#upcycling" },
+                { label: "프리미엄", href: "#premium" },
+                { label: "취향찾기", href: "#taste" },
+                { label: "리뷰", href: "#review" },
+                { label: "MONCASA", href: "#lineup" }
+            ];
+            // <li class="gnb_li"><a href="#minimal" class="gnb_li_a d-block text-white fw-500">미니멀</a></li>
+            document.addEventListener('DOMContentLoaded', function() {
+                const mon_navi = document.getElementById("mon_navi");
+                let navidata = "";
+                
+                gnbItems.forEach(function(ele, index) {
+                navidata += `<li class="gnb_li">
+                                <a href="${ele.href}" 
+                                class="gnb_li_a d-block text-white 
+                                ${index === gnbItems.length - 1 ? 'fw-700' : 'fw-400'}"
+                                >
+                                    ${ele.label}
+                                </a>
+                            </li>`;
+            });
+            mon_navi.innerHTML = navidata;
+            document.getElementById("m_mon_navi").innerHTML = navidata;
+        });
+    </script>
+    </head>
+    <body>
+        <!-- 상단 헤더 -->
+        <header id="hd">
+                <div class="d-flex justify-content-between align-items-center mainColor-bg px-4 px-sm-5 py-3 py-sm-4">
+                    <h1><a href=""><img src="img/logo/logo_w.svg" alt="" class="logo"></a></h1>
+                    <div class="gnb_container d-flex align-items-center justify-content-between">
+                        <nav>
+                            <ul class="gnb d-xl-flex d-none px-5 gap-5" id="mon_navi"></ul>
+                        </nav>
+                        <button class="global_bt d-flex align-items-center justify-content-between text-white fw-500">
+                            <svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M27.52 14C27.52 15.7072 27.1837 17.3976 26.5304 18.9749C25.8771 20.5521 24.9195 21.9852 23.7124 23.1924C22.5052 24.3995 21.0721 25.3571 19.4949 26.0104C17.9176 26.6637 16.2272 27 14.52 27C12.8128 27 11.1224 26.6637 9.54512 26.0104C7.96789 25.3571 6.53479 24.3995 5.32763 23.1924C4.12047 21.9852 3.16289 20.5521 2.50958 18.9749C1.85627 17.3976 1.52002 15.7072 1.52002 14C1.52002 10.5522 2.88966 7.24558 5.32763 4.80761C7.7656 2.36964 11.0722 1 14.52 1C17.9678 1 21.2744 2.36964 23.7124 4.80761C26.1503 7.24558 27.52 10.5522 27.52 14Z" stroke="currentColor" stroke-width="1.86"/>
+                                <path d="M19.7252 13.9999C19.7252 15.7068 19.59 17.398 19.3287 18.9748C19.0688 20.5516 18.6853 21.9841 18.2017 23.1918C17.7194 24.3994 17.1462 25.3562 16.5157 26.01C15.8839 26.6626 15.208 26.9993 14.5255 26.9993C13.843 26.9993 13.1671 26.6626 12.5366 26.01C11.9048 25.3562 11.3316 24.3981 10.8493 23.1918C10.3657 21.9841 9.98222 20.5529 9.72093 18.9748C9.45432 17.33 9.32216 15.6662 9.32575 13.9999C9.32575 12.2931 9.45965 10.6019 9.72093 9.0251C9.98222 7.44828 10.3657 6.01575 10.8493 4.80811C11.3316 3.60048 11.9048 2.64373 12.5353 1.98986C13.1671 1.33859 13.843 1.00061 14.5255 1.00061C15.208 1.00061 15.8839 1.33729 16.5144 1.98986C17.1462 2.64373 17.7194 3.60178 18.2017 4.80811C18.6853 6.01575 19.0688 7.44698 19.3287 9.0251C19.5913 10.6019 19.7252 12.2931 19.7252 13.9999Z" stroke="currentColor" stroke-width="1.86"/>
+                                <path d="M1.52002 14H27.5187" stroke="currentColor" stroke-width="1.86" stroke-linecap="round"/>
+                            </svg>
+                            KOR
+                        </button>
+                    </div>
+                </div>
+                <ul class="gnb d-flex d-xl-none gap-3 py-3 justify-content-center mainColor-bg" id="m_mon_navi"></ul>
+        </header>
+        <!-- 상단 헤더 스크립트 -->
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            const hd = document.querySelector("#hd");
+            const eventBanner = document.querySelector("#event");
+
+            if (!eventBanner || !hd) return;
+
+            // 처음 로드 시 #hd 위치 조정
+            hd.style.top = eventBanner.offsetHeight + "px";
+
+            // hd가 원래 있던 위치(문서 상단에서의 거리) 저장
+            const hdTopPosition = hd.offsetTop;
+
+            // 스크롤 이벤트 감지
+            window.addEventListener("scroll", () => {
+                if (window.scrollY >= hdTopPosition) {
+                hd.classList.add("fixed-top");
+                hd.style.top = "0"; // fixed 상태일 땐 top 0
+                } else {
+                hd.classList.remove("fixed-top");
+                hd.style.top = eventBanner.offsetHeight + "px"; // 원위치
+                }
+            });
+            });
+        </script>
+        <nav class="quick_menu">
+            <ul>
+                <li>
+                <a href="">
+                    <span class="label">더 많은<br>제품보기</span>
+                    <span class="icon prod"><img src="./img/quick_icon_1.png" alt="" class="img_s"></span>
+                </a>
+                </li>
+                <li>
+                <a href="">
+                    <span class="label">매장찾기</span>
+                    <span class="icon store"><img src="./img/quick_icon_2.png" alt="" class="img_s"></span>    
+                </a>
+                </li>
+                <li>
+                <a href="">
+                    <span class="label">고객센터</span>
+                    <span class="icon cs"><img src="./img/quick_icon_3.png" alt="" class="img_s"></span>    
+                </a>
+            </li>
+            </ul>
+            <button id="mobile_quick" class="d-lg-none">
+                <span class="icon open">
+                    <img src="./img/quick_icon_4.png" alt="" class="img_s d-none close">
+                    <img src="./img/quick_icon_5.png" alt="" class="img_s open">
+                </span>    
+            </button>
+        </nav>
+        <script>
+            const mobile_quick = document.getElementById("mobile_quick");
+            const quick_menu = document.querySelector(".quick_menu");
+            const icon_open = mobile_quick.querySelector("img.open");
+            const icon_close = mobile_quick.querySelector("img.close");
+            mobile_quick.addEventListener("click", function(){
+                quick_menu.classList.toggle("active");
+                icon_open.classList.toggle("d-none");
+                icon_close.classList.toggle("d-none");
+            })
+        </script>
+        <main>
+            <!-- 기획전 -->
+            <section id="event" class="">
+                <!-- Swiper -->
+                <div class="swiper event_Swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="scalebanner d-flex text-decoration-none ">
+                            <a href="#minimal" class="scalechild1 w-100 d-flex flex-column">
+                                <h3 class="order-3 mt-auto text-center">Minimal</h3>
+                                <p>가을 감성,<br/>우리 사이 만큼</p>
+                                <span class="mt-1">1인가구, 신혼부부를<br/>위한 작지만 깊은 가을 감성</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="scalebanner d-flex text-decoration-none">
+                            <a href="#upcycling" class="scalechild2 w-100 d-flex flex-column position-relative">
+                                <h3 class="text-white position-absolute overflow-hidden">Upcycling</h3>
+                                <p class="mt-auto text-white mb-3">숨겨진 보석을 찾아라</p>
+                                <span class="text-white lh-sm">지구를 살리는<br/>가장 아름다운 선택</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="scalebanner d-flex text-decoration-none">
+                            <a href="#premium" class="scalechild3 w-100 d-flex flex-column">
+                                <h3 class="mb-auto text-white text-start">Premium</h3>
+                                <p class="text-white text-end lh-sm">시간이 흘러도<br/>변치않는 가치</p>
+                                <span class="text-white text-end mt-4 mb-5 lh-sm">인생 후반전, 나를 위한 품격 있는<br/>공간을 만들어보세요</span>
+                            </a>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+            </section>
+            <!-- 미니멀 -->
+            <section id="minimal" class="section_p pt-5 mt-5">
+                <div class="container_1450 gap-xxl-5 gap-xl-5 d-flex flex-column flex-xl-row justify-content-between pt-5 mt-5 pb-xl-5">
+                <!-- 왼쪽 배너 -->
+                    <div class="ex1_banner d-xl-flex col">
+                        <div class="bg-img  w-100 d-flex flex-column justify-content-between position-relative p-xl-5">
+                            <div class="m-xl-0 p-xl-0 p-2">
+                                <h2 class="event_main_title1 mainColor-text d-flex text-end ms-xl-5">
+                                Minimal
+                                </h2>
+                                <strong class="event_serve_title1 mainColor-text ms-xl-5 ps-xl-3">
+                                    1인가구, 신혼 부부를<br>
+                                    위한 작지만 깊은 가을 감성
+                                </strong>
+                            </div>
+                                <strong class="event_title1 text-end text-white mb-xl-5 pb-xl-5 pe-2 pe-xl-0">
+                                    가을 감성,<br>
+                                    우리 사이 만큼
+                                </strong>
+
+                            <div class="d-flex p-2">
+                                <div class="mt-xl-4 d-flex flex-column align-items-start">
+                                    <p class="tag gap-1 justify-content-center align-items-center px-3 py-0 py-xl-2">인기상품</p>
+                                    <p class="tag gap-1 justify-content-center align-items-center px-3 py-0 py-xl-2">무료 설치 홈서비스</p>
+                                </div>
+                                <h3 class="percent text-white">
+                                    ~40%
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 상품 리스트 -->
+
+
+                    <div class="swiper pt-3 mx-0 pb-5 pb-xl-0 px-5 px-md-4 px-md-4 col-xl-6 pt-xl-0 px-xl-0">
+                        <div class="product_set swiper-wrapper">
+                            <div class="product_card1 position-relative overflow-visible swiper-slide">
+                                <a href="" class="d-flex flex-column h-100">
+                                    <div class="position-relative col bg-light d-flex flex-column justify-content-center align-items-center" >
+                                        <img class="col-11" src="./img/product/mi_sofa1_1p.png" alt="모카 1인소파">
+                                        <strong class="badge mainColor-bg rounded-circle position-absolute bottom-0 end-0 me-1 mb-1 me-sm-3 mb-sm-3">
+                                            40%
+                                        </strong>
+                                    </div>
+                                    <div class="product_text d-flex flex-column mt-xl-3">
+                                        <strong class="prod_name d-flex align-items-center">
+                                            모카 800 일반형
+                                        </strong>
+                                        <p class="product_price_set d-flex justify-content-between align-items-center">
+                                            <span class="prod_cost d-flex align-items-center">
+                                                200,000원
+                                            </span>
+                                            <strong class="prod_price">
+                                                120,000원
+                                            </strong>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="product_card2 position-relative overflow-visible swiper-slide">
+                                <a href="" class="d-flex flex-column h-100">
+                                    <div class="position-relative col bg-light d-flex flex-column justify-content-center align-items-center">
+                                        <img class="col-11" src="./img/product/mi_sofa2_1p.png" alt="리클라이너 리노 1인소파">
+                                            <strong class="badge mainColor-bg rounded-circle position-absolute bottom-0 end-0 me-1 mb-1 me-sm-3 mb-sm-3">
+                                                30%
+                                            </strong>
+                                    </div>
+                                    <div class="product_text d-flex flex-column mt-xl-3">
+                                        <strong class="prod_name d-flex align-items-center">
+                                            리노 700 리클라이너
+                                        </strong>
+                                        <p class="product_price_set d-flex justify-content-between align-items-center">
+                                            <span class="prod_cost d-flex align-items-center">
+                                                500,000원
+                                            </span>
+                                            <strong class="prod_price">
+                                                350,000원
+                                            </strong>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="product_card3 position-relative overflow-visible swiper-slide">
+                                <a href="" class="d-flex flex-column h-100">
+                                    <div class="position-relative col bg-light d-flex flex-column justify-content-center align-items-center">
+                                        <img  class="col-11" src="./img/product/mi_sofa1_2p.png" alt="리클라이너 빈트 2인소파">
+                                            <strong class="badge mainColor-bg rounded-circle position-absolute bottom-0 end-0 me-1 mb-1 me-sm-3 mb-sm-3">
+                                                25%
+                                            </strong>
+                                    </div>
+                                    <div class="product_text d-flex flex-column mt-xl-3">
+                                        <strong class="prod_name d-flex align-items-center">
+                                            빈트 1700 리클라이너
+                                        </strong>
+                                        <p class="product_price_set d-flex justify-content-between align-items-center">
+                                            <span class="prod_cost d-flex align-items-center">
+                                                800,000원
+                                            </span>
+                                            <strong class="prod_price">
+                                                600,000원
+                                            </strong>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="product_card4 position-relative overflow-visible swiper-slide">
+                                <a href="" class="d-flex flex-column h-100">
+                                    <div class="position-relative col bg-light d-flex flex-column justify-content-center align-items-center">
+                                        <img class="col-11" src="./img/product/mi_sofa2_2p.png" alt="네이브 2인소파">
+                                            <strong class="badge mainColor-bg rounded-circle position-absolute bottom-0 end-0 me-1 mb-1 me-sm-3 mb-sm-3">
+                                                40%
+                                            </strong>
+                                    </div>
+                                    <div class="product_text d-flex flex-column mt-xl-3">
+                                        <strong class="prod_name d-flex align-items-center">
+                                            네이브 1400 일반형
+                                        </strong>
+                                        <p class="product_price_set d-flex justify-content-between align-items-center">
+                                            <span class="prod_cost d-flex align-items-center">
+                                                400,000원
+                                            </span>
+                                            <strong class="prod_price">
+                                                240,000원
+                                            </strong>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                                 <!-- 스크롤바 -->
+                        
+                         <div class="swiper-scrollbar mx-auto start-0 end-0 mt-5 d-xl-none"></div>
+                    </div>
+
+                    <script>
+                    const minimal = new Swiper("#minimal .swiper", {
+                        loop: false,
+                        slidesPerView: 2,
+                        spaceBetween: 10, // 슬라이드 간격 
+                        
+                        scrollbar: {
+                        el: ".swiper-scrollbar",
+                        draggable: true, // 사용자가 드래그 가능
+                        hide: false,     // 항상 보이도록 설정
+                        },
+
+                        breakpoints: {
+                            1200: { // 1200px 이상 → 2줄 2열
+                                slidesPerView: 2,
+                                spaceBetween: 20,
+                                grid: {
+                                rows: 2,
+                                fill: 'row',
+                                },
+                            },
+                            991: { // 991px 이상 ~ 1199px → 2개씩
+                                slidesPerView: 2.5,
+                                spaceBetween: 30,
+                                grid: {
+                                rows: 1,
+                                fill: 'row',
+                                },
+                            },
+                            
+                            0: { // 모바일 → 1.2~1.5개만 보이게 해서 스와이프 유도
+                                slidesPerView: 2.3,
+                                spaceBetween: 16,
+                                grid: {
+                                rows: 1,
+                                fill: 'row',
+                                },
+                            }
+                            },
+
+                        });
+                    </script>
+                </div>
+                <ul class="banner_set ">
+                    <li class="banner">
+                        <a href="" class="d-block">
+                            <strong class="bottom-banner text-center container_1450 d-block text-white mt-5 px-5 py-4 py-xl-5">
+                                세트 상품 할인전 바로가기
+                            </strong>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <!-- 업사이클링 -->
+            <section id="upcycling" class="section_p line-height-1">             
+
+
+                    <!-- 1920 -->
+                    <div class="1920 ">
+                      <!-- 1450 -->
+                      <div class="container_1450">
+                        
+                        <!-- 상품들 + 기획전이미지 -->
+                        <div class=" d-flex flex-column gap-xl-5  flex-xl-row justify-content-xl-between plan_project_special overflow-hidden">
+                         
+                         <div class="swiper col-xl-6 order-2 order-xl-1 mt-lg-5 mt-4 mt-xl-0 mx-lg-5 mx-4 mx-xl-0  overflow-visible">
+                                <!-- 상품 컴포넌트 세트 -->
+                                <div class=" product_set swiper-wrapper">
+                                    <div class="product_card d-flex flex-column swiper-slide">
+                                        <a href="">
+                                        <div class="product_card1  imgfit  position-relative">
+                                            <div class="img_bg px-xl-3"><img src="./img/product/eco_sofa1.png" alt="소파1" class="img-fluid"/></div>
+
+                                            <div class="position-absolute text-white icon_group">
+                                                <strong class="eco">ECO</strong> 
+                                                <strong class="sale">20%</strong>
+                                            </div>
+                                        </div> 
+                                        <div class="prod_text mt-2 mt-xl-4 ">                                                               
+                                            <strong class="prod_name d-flex justify-content-center justify-content-xl-start">페르잔 3200 일반형</strong>
+                                        <p class="mb-0 mt-2 mt-xl-3 d-flex flex-column align-items-center justify-content-xl-between flex-xl-row  product_price_set">
+                                            <span class="prod_cost">2,830,000원</span>
+                                            <strong class="prod_price">2,264,000원</strong>
+                                        </p> 
+                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="product_card d-flex flex-column swiper-slide">
+                                        <a href="">
+                                        <div class="product_card2  imgfit position-relative">
+                                            <div class="img_bg px-xl-3"><img src="./img/product/eco_sofa2.png" class="img-fluid" alt="소파2" /></div>
+
+                                            <div class="position-absolute text-white icon_group">
+                                                <strong class="eco">ECO</strong>
+                                                <strong class="sale">20%</strong>
+                                            </div>
+                                        </div> 
+                                        <div class="prod_text mt-2 mt-xl-4 ">                                                               
+                                            <strong class="prod_name d-flex justify-content-center justify-content-xl-start">리몬토 2800 일반형</strong>
+                                        <p class="mb-0 mt-2 mt-xl-3 d-flex flex-column align-items-center justify-content-xl-between flex-xl-row  product_price_set">
+                                            <span class="prod_cost">2,960,000원</span>
+                                            <strong class="prod_price">2,152,000원</strong>
+                                        </p> 
+                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class=" product_card d-flex flex-column swiper-slide">
+                                        <a href="">
+                                        <div class="product_card3  imgfit position-relative">
+                                            <div class="img_bg px-xl-3"><img src="./img/product/eco_sofa3.png" class="img-fluid" alt="소파3" /></div>
+
+                                            <div class="position-absolute text-white icon_group">
+                                                <strong class="eco">ECO</strong>
+                                                <strong class="sale">10%</strong>
+                                            </div>
+                                        </div> 
+                                        <div class="prod_text mt-2 mt-xl-4 ">                                                               
+                                            <strong class="prod_name d-flex justify-content-center justify-content-xl-start">시어스 3500 코너형</strong>
+                                        <p class="mb-0 mt-2 mt-xl-3 d-flex flex-column align-items-center justify-content-xl-between flex-xl-row  product_price_set">
+                                            <span class="prod_cost">3,210,000원</span>
+                                            <strong class="prod_price">2,889,000원</strong>
+                                        </p> 
+                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="product_card d-flex flex-column swiper-slide">
+                                        <a href="">
+                                        <div class="product_card4  imgfit position-relative">
+                                            <div class="img_bg px-xl-3"><img src="./img/product/eco_sofa4.png" class="img-fluid" alt="소파4" /></div>
+
+                                            <div class="position-absolute text-white icon_group">
+                                                <strong class="eco">ECO</strong>
+                                                <strong class="sale">15%</strong>
+                                            </div>
+                                        </div> 
+                                        <div class="prod_text mt-2 mt-xl-4 ">                                                               
+                                            <strong class="prod_name d-flex justify-content-center justify-content-xl-start">보르도 3000 일반형</strong>
+                                        <p class="mb-0 mt-2 mt-xl-3 d-flex flex-column align-items-center justify-content-xl-between flex-xl-row  product_price_set">
+                                            <span class="prod_cost">2,190,000원</span>
+                                            <strong class="prod_price">1,861,500원</strong>
+                                        </p> 
+                                        </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                 <!-- 스크롤바 -->
+                         <div class="swiper-scrollbar mt-5 d-xl-none start-0 end-0"></div>
+                         </div>
+                         <script>
+                            
+                            const upcycling = new Swiper("#upcycling .swiper", {
+                                loop: false,
+                                slidesPerView: 2,
+                                spaceBetween: 10, // 슬라이드 간격 
+                                
+                                scrollbar: {
+                                el: ".swiper-scrollbar",
+                                draggable: true, // 사용자가 드래그 가능
+                                hide: false,     // 항상 보이도록 설정
+                                },
+
+                                breakpoints: {
+                                    1200: { // 1200px 이상 → 2줄 2열
+                                        slidesPerView: 2,
+                                        spaceBetween: 20,
+                                        grid: {
+                                        rows: 2,
+                                        fill: 'row',
+                                        },
+                                    },
+                                    991: { // 991px 이상 ~ 1199px → 2개씩
+                                        slidesPerView: 2.5,
+                                        spaceBetween: 30,
+                                        grid: {
+                                        rows: 1,
+                                        fill: 'row',
+                                        },
+                                    },
+                                  
+                                    0: { // 모바일 → 1.2~1.5개만 보이게 해서 스와이프 유도
+                                        slidesPerView: 2.3,
+                                        spaceBetween: 16,
+                                        grid: {
+                                        rows: 1,
+                                        fill: 'row',
+                                        },
+                                    }
+                                    }
+
+                                });
+                         </script> 
+                
+                          <!-- 기획전 이미지 -->
+                          <div class="text-white d-flex col-xl-6 event order-1 order-xl-2">
+
+                            <div class="d-flex w-100 flex-column justify-content-between ecombt">
+
+                             <div class="ecombt1 pt-3 pt-xl-5 ps-3 ps-xl-5">
+                                 <div class="d-flex ">
+                                     <i><img src="./img/EcoVector.svg" alt=""></i>
+                                     <h2 class="event_main_title2">Upcycling</h2>
+                                 </div>
+                                
+                                 <div class="d-flex flex-column img_title ">
+                                     <strong class="fw-700 mb-1 mb-xl-3 event_title2">숨겨진 보석을 찾아라</strong>
+                                     <strong class="fw-500 event_serve_title2">지구를 살리는<br>가장 아름다운 선택</strong>
+                                 </div>                                
+                             </div>
+
+                             <div class="px-3 px-xl-5 py-3 py-xl-5 d-flex w-100 justify-content-between ecombt2 flex-row-reverse align-items-end">
+                                 <h3 class="percent mb-0">~20%</h3>
+                                 <div class="d-flex align-items-start flex-column textbadge gap-1 gap-xl-2 text-nowrap">
+                                     <p class="fw-500 py-0 py-xl-1 px-2 d-inline-block tag2">30개 한정판</p>
+                                     <p class="fw-500 py-0 py-xl-1 px-2 d-inline-block tag2">브랜드 쿠션커버 증정</p>
+                                     <p class="fw-500 py-0 py-xl-1 px-2 d-inline-block tag2">100만 이상 무료배송</p>
+                                 </div>
+                            </div>
+                          </div>
+                          </div>                                                  
+                        </div>                        
+
+                        <!-- 광고 배너 -->
+                        <ul class="justify-content-between d-flex text-white text-end banner_set">
+
+                          <!-- 광고1 -->
+                          <li class="col d-flex py-3 px-3 flex-column justify-content-center banner_eco1">
+                            <a href="" class="text-white">
+                                <p class="d-flex flex-column align-items-end">
+                                    <strong class="fw-700 d-flex flex-column flex-xl-row">몬까사의 <strong class="ms-2 "> 환경 캠페인</strong></strong>
+                                    <span class="mt-xl-1 d-none d-xl-block">자연을 사랑하는 몬까사의 다양한 활동</span>
+                                </p>                        
+                            </a>
+                          </li>
+
+                          <!-- 광고2 -->
+                          <li class="px-3 py-3 col d-flex flex-column justify-content-center banner_eco2">
+                            <a href="" class="text-white">
+                                <p class="d-flex flex-column align-items-end">
+                                    <strong class="fw-xl-700 d-flex flex-column flex-xl-row">친환경 상품 <strong class="ms-2">더 보러가기</strong></strong>
+                                    <span class="mt-xl-1 d-none d-xl-block">환경과 편리함을 모두 잡은<br>나만의 보석을 발견하세요</span>
+                                </p>
+                            
+                            </a>
+                          </li>
+                          
+                        </ul>
+                
+                      </div>
+                    </div>
+            </section>
+            <!-- 프리미엄 -->
+            <section id="premium" class="section_p">
+                    <div class="event_section3 w-100 bg-cover bg-no-repeat">
+                        <div class="event3 d-flex flex-column justify-content-between container_1450 w-100 mx-auto position-relative">
+                            <div>
+                                <h2 class="event_main_title3 text-white">“시간이 흘러도 변치 않는 가치”<br>
+                                프리미엄 가구 기획전 특별 혜택</h2>
+                                <strong class="event_title3 text-white mb-6">지금 구매하시면 다양한 혜택이 함께합니다!</strong>
+                            </div>
+                            <div class="premium_tags">
+                                <p class="tag">건강쿠션 증정</p>
+                                <p class="tag">무료 설치 홈서비스</p>
+                                <p class="tag">지인 추천시, 최대 50% 할인 혜택</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper premium_mySwiper container_1450">
+                        <div class="swiper-wrapper w-100">
+                            <div class="swiper-slide">
+                                <ul class="product_set">
+                                    <li class="product_card">
+                                        <a href="">
+                                            <div class="position-relative">
+                                                <img class="img" src="img/premium_product1.png" alt="">
+                                                <div class="icon_group position-absolute">
+                                                    <strong class="eco text-white">ECO</strong>
+                                                    <strong class="sale text-white">20%</strong>
+                                                </div>
+                                            </div>
+                                            <strong class="prod_name d-flex justify-content-between">
+                                                오르덴 2700 리클라이너
+                                            </strong>
+                                            <p class="product_price_set d-flex justify-content-between">
+                                                <span class="prod_cost">4,690,000원</span>
+                                                <strong class="prod_price">3,752,000원</strong>
+                                            </p>
+                                        </a>    
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="swiper-slide">
+                                <ul class="product_set">
+                                    <li class="product_card">
+                                        <a href="">
+                                            <div class="position-relative">
+                                                <img class="img" src="img/premium_product2.png" alt="">
+                                                <div class="icon_group position-absolute">
+                                                    <!-- <strong class="eco">ECO</strong> -->
+                                                    <strong class="sale">20%</strong>
+                                                </div>
+                                            </div>
+                                            <strong class="prod_name d-flex justify-content-between">
+                                                디에즈 4220 모듈형
+                                            </strong>
+                                            <p class="product_price_set d-flex justify-content-between">
+                                                <span class="prod_cost ">10,600,000원</span>
+                                                <strong class="prod_price">8,480,000원</strong>
+                                            </p>
+                                        </a>    
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="swiper-slide">
+                                <ul class="product_set">
+                                    <li class="product_card">
+                                        <a href="">
+                                            <div class="position-relative">
+                                                <img class="img" src="img/premium_product3.png" alt="">
+                                                <div class="icon_group position-absolute">
+                                                    <!-- <strong class="eco text-white">ECO</strong> -->
+                                                    <strong class="sale text-white">20%</strong>
+                                                </div>
+                                            </div>
+                                            <strong class="prod_name d-flex justify-content-between">
+                                                디오 3300 코너형
+                                            </strong>
+                                            <p class="product_price_set d-flex justify-content-between">
+                                                <span class="prod_cost">8,300,000원</span>
+                                                <strong class="prod_price">6,640,000원</strong>
+                                            </p>
+                                        </a>    
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="swiper-slide">
+                                <ul class="product_set">
+                                    <li class="product_card">
+                                        <a href="">
+                                            <div class="position-relative">
+                                                <img class="img" src="img/premium_product4.png" alt="">
+                                                <div class="icon_group position-absolute">
+                                                    <!-- <strong class="ecotext-white">ECO</strong> -->
+                                                    <strong class="sale text-white">20%</strong>
+                                                </div>
+                                            </div>
+                                            <strong class="prod_name d-flex justify-content-between">
+                                                도블레 3040 카우치형
+                                            </strong>
+                                            <p class="product_price_set d-flex justify-content-between">
+                                                <span class="prod_cost">6,200,000원</span>
+                                                <strong class="prod_price">4,960,000원</strong>
+                                            </p>
+                                        </a>    
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="swiper-slide">
+                                <ul class="product_set">
+                                    <li class="product_card">
+                                        <a href="">
+                                            <div class="position-relative">
+                                                <img class="img" src="img/premium_product5.png" alt="">
+                                                <div class="icon_group position-absolute">
+                                                    <strong class="eco text-white">ECO</strong>
+                                                    <strong class="sale text-white">20%</strong>
+                                                </div>
+                                            </div>
+                                            <strong class="prod_name d-flex justify-content-between">
+                                                테세르 3560 카우치형
+                                            </strong>
+                                            <p class="product_price_set d-flex justify-content-between">
+                                                <span class="prod_cost">7,700,000원</span>
+                                                <strong class="prod_price">6,160,000원</strong>
+                                            </p>
+                                        </a>    
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="swiper-slide">
+                                <ul class="product_set">
+                                    <li class="product_card">
+                                        <a href="">
+                                            <div class="position-relative">
+                                                <img class="img" src="img/premium_product6.png" alt="">
+                                                <div class="icon_group position-absolute">
+                                                    <!-- <strong class="eco">ECO</strong> -->
+                                                    <strong class="sale">20%</strong>
+                                                </div>
+                                            </div>
+                                            <strong class="prod_name d-flex justify-content-between">
+                                                리토스 3400 카우치형
+                                            </strong>
+                                            <p class="product_price_set d-flex justify-content-between">
+                                                <span class="prod_cost ">6,400,000원</span>
+                                                <strong class="prod_price">5,120,000원</strong>
+                                            </p>
+                                        </a>    
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="swiper-slide">
+                                <ul class="product_set">
+                                    <li class="product_card">
+                                        <a href="">
+                                            <div class="position-relative">
+                                                <img class="img" src="img/premium_product7.png" alt="">
+                                                <div class="icon_group position-absolute">
+                                                    <strong class="eco text-white">ECO</strong>
+                                                    <strong class="sale text-white">20%</strong>
+                                                </div>
+                                            </div>
+                                            <strong class="prod_name d-flex justify-content-between">
+                                                리니에 2800 일반형
+                                            </strong>
+                                            <p class="product_price_set d-flex justify-content-between">
+                                                <span class="prod_cost">5,900,000원</span>
+                                                <strong class="prod_price">4,720,000원</strong>
+                                            </p>
+                                        </a>    
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-scrollbar d-xl-none"></div>
+                    </div>
+            </section>
+            <!-- 취향찾기 -->
+            <section id="taste" class=" d-flex position-relative justify-content-center align-items-center pt-3 pb-5 mt-5 bg-light">
+                <div class="container_1650 position-absolute top-50 mx-auto start-0 end-0">
+                    <div class="swiper-button-prev position-absolute"></div>
+                    <div class="swiper-button-next position-absolute"></div>
+                </div>
+                    
+                <div class="container_1450 position-relative mySwiper overflow-hidden pb-5 mb-5 pt-5">
+
+                    <div class="top_fixed_box">
+                        <div class="slide_top d-flex justify-content-between align-items-center mt-xl-5 mb-xl-5 mt-3 mb-3 ps-md-5 pe-5">
+                            <h4 class="slide-title text-start mt-3 ms-2 ms-md-1">
+                                내 취향에 꼭 맞는 가구 찾기
+                            </h4>
+                            <p class="icon d-flex align-items-center">
+                                <a href="" class="icon_text text-end d-flex gap-2">
+                                    안녕하세요, 고객님! MONCASA의 <br>
+                                    가구 추천을 담당하는 CASA봇입니다
+                                <img src="./img/taste_icon.png" alt="CASA봇" class="taste_icon">
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="progress-fixed-wrapper d-flex align-items-center position-absolute">
+                        <div class="swiper-scrollbar flex-grow-1 h-1 position-unset"></div>
+                        <div class="swiper-pagination position-unset position-unset w-auto text-end"></div>
+                    </div>
+
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide mt-5 pt-xl-5">
+                            <div class="ms-xl-3">
+                                <p class="slide_mid_title text-start mt-1 ms-5 ps-3 ps-md-5">
+                                고객님의 취향의 가구를 추천해드릴게요.
+                                </p>
+                            </div>
+                            
+                            <p class="slide-question text-start ps-1 ps-md-5">
+                                <span class="q_num me-3 mainColor-text">Q1</span>
+                                가구를 사용하는 인원수를 골라주세요!
+                            </p>
+                            <div class="pt-xl-5 mt-xl-5 d-flex justify-content-center">
+                                <ul class="options pt-5 mt-5 d-flex gap-2 gap-md-4 flex-wrap justify-content-center w-100 overflow-hidden">
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            1인용
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            2인용
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            3인용
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            4인용
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide mt-5 pt-xl-5">
+                            <div class="ms-xl-3">
+                                <p class="slide_mid_title text-start mt-1 ms-5 ps-3 ps-md-5">
+                                고객님의 취향의 가구를 추천해드릴게요.
+                                </p>
+                            </div>
+                            
+                            <p class="slide-question text-start ps-1 ps-md-5">
+                                <span class="q_num me-3 mainColor-text">Q2</span>
+                                소재를 선택해주세요!
+                            </p>
+                            <div class="pt-xl-5 mt-xl-5 d-flex justify-content-center">
+                                <ul class="options pt-5 mt-5 d-flex gap-2 gap-md-4 flex-wrap justify-content-center w-100 overflow-hidden">
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            가죽
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            패브릭
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            친환경소재
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            방수
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide mt-5 pt-xl-5">
+                            <div class="ms-xl-3">
+                                <p class="slide_mid_title text-start mt-1 ms-5 ps-3 ps-md-5">
+                                고객님의 취향의 가구를 추천해드릴게요.
+                                </p>
+                            </div>
+                            <p class="slide-question text-start ps-1 ps-md-5">
+                                <span class="q_num me-3 mainColor-text">Q3</span>
+                                컬러를 선택해주세요!
+                            </p>
+                            <div class="pt-xl-5 mt-xl-5 d-flex justify-content-center">
+                                <ul class="options pt-5 mt-5 d-flex gap-2 gap-md-4 flex-wrap justify-content-center w-100 overflow-hidden">
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            다크
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            비비드
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            파스텔
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            누드
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="swiper-slide mt-5 pt-xl-5">
+                            <div class="ms-xl-3">
+                                <p class="slide_mid_title text-start mt-1 ms-5 ps-3 ps-md-5">
+                                고객님의 취향의 가구를 추천해드릴게요.
+                                </p>
+                            </div>
+                            <p class="slide-question text-start ps-1 ps-md-5">
+                                <span class="q_num me-3 mainColor-text">Q4</span>
+                                형태를 선택해주세요!
+                            </p>
+                            <div class="pt-xl-5 mt-xl-5 d-flex justify-content-center">
+                                <ul class="options pt-5 mt-5 d-flex gap-2 gap-md-4 flex-wrap justify-content-center w-100 overflow-hidden">
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            일체형
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            모듈형
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            리클라이너
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            기타
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Slide 5 -->
+                        <div class="swiper-slide mt-5 pt-xl-5">
+                            <div class="ms-xl-3">
+                                <p class="slide_mid_title text-start mt-1 ms-5 ps-3 ps-md-5">
+                                고객님의 취향의 가구를 추천해드릴게요.
+                                </p>
+                            </div>                     
+                            
+                            <p class="slide-question text-start ps-1 ps-md-5">
+                                <span class="q_num me-3 mainColor-text">Q5</span>
+                                가격대를 선택해주세요!
+                            </p>
+                            <div class="pt-xl-5 mt-xl-5 d-flex justify-content-center">
+                                <ul class="options pt-5 mt-5 d-flex gap-2 gap-md-4 flex-wrap justify-content-center w-100 overflow-hidden">
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            ~50만원
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            50~100
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            100~300
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="option-btn bg-white cursor-pointer
+                                        text-center rounded-pill">
+                                            기타
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                            
+                </div>
+                    
+            </section>
+            <section id="review" class="section_p">
+                    <div class="review_title"><h4>고객님들의 공간이 담긴 솔직 후기</h4></div>
+                    <div class="container">
+                        <!-- Swiper -->
+                            <div class="swiper review_swiper overflow-visible">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="review1"></div>
+                                    <div class="review1_title"><p>다들 이쁘다고 감탄해요</p></div>
+                                    <div class="review1_content"><p>몬까사 제품이 너무 많아서 실제로 매장가서 보고 구매했습니당 저희집 크기와 구조에 카우치형은 적합하지 않아서 기본형(?)을 원했는데 카우치형에 비해 기본형 리뷰는 넘 적더라구요...</p></div>
+                                    <div class="review1_star_display d-flex">
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                    </div>
+                                    <div class="review_footer">
+                                        <span>김*재 님 | 밸머 4인 기능성 젠위브 패브릭 소파</span>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="review2"></div>
+                                    <div class="review2_title"><p>아기와 개가 있는집 관리가 수월...</p></div>
+                                    <div class="review2_content"><p>아기와 개가 모두 있는 집이라 털이 잘 떨어지고 오염에 강하면서도 소재가 좋은 소파를 찾다보니 몬까사를 사게 됐습니다. 색깔도 고급스럽고 디자인도 간결하니 예쁩니다.</p></div>
+                                    <div class="review1_star_display d-flex">
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                    </div>
+                                    <div class="review_footer">
+                                        <span>이*은 님 | 마로네 4인 젠위브 패브릭 소파</span>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="review3"></div>
+                                    <div class="review3_title"><p>디자인&기능 다 만족스러워요</p></div>
+                                    <div class="review3_content"><p>구매 후 한 달 후에 받을 수 있었어요 2년 전부터 봐두었다가 구매했는데 역시나 너무 예쁘네요</p></div>
+                                    <div class="review1_star_display d-flex">
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                    </div>
+                                    <div class="review_footer">
+                                        <span>김*희 님 | 잭슨 프리미엄 천연면피 소가죽 소파</span>
+                                    </div>
+
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="review4"></div>
+                                    <div class="review4_title"><p>가족 모두 만족하는 소파를</p></div>
+                                    <div class="review4_content"><p>한달만에 이사 날짜잡고 제일 빨리 구매한 상품이였는데 인기가 많아서 인지 이사후 2주뒤에 받았습니다. 소파 없는 거실이 휑하긴 했지만 기다린 보람이 있네요. 넘 맘에 들어요</p></div>
+                                    <div class="review1_star_display d-flex">
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                    </div>
+                                    <div class="review_footer">
+                                        <span>강*경 님 | 젬마 4인 기능성 젠위브 패브릭 소파</span>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="review5"></div>
+                                    <div class="review5_title"><p>고민과 기다린 보람 있는 소파</p></div>
+                                    <div class="review5_content"><p>소파 주문하고 한 달이 걸렸습니다. 고민도 상당히 오래 하고 주문했는데 제작 기간또한 오래걸리더군요 ㅋ 그래도 기다린 건 이전에 인조가죽 패브릭 소파 이것저것 써봤지만...</p></div>
+                                    <div class="review1_star_display d-flex">
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                        <div class="review1_star"></div>
+                                    </div>
+                                    <div class="review_footer">
+                                        <span>최*원 님 | 무민 3.5인 천연면피 소가죽 소파</span>
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>                            
+                        </div>
+                    </div>
+                    <div class="wrapper_btn">
+                        <button class="review_btn"><span class="review_bold"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 18.75L3 12.75L14 1.75C15 0.75 17 0.75 18 1.75C19 2.75 19 4.75 18 5.75L7 16.75L1 18.75Z" stroke="#050505" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13 2.75L17 6.75" stroke="#050505" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4 12.75L7 15.75" stroke="#050505" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+후기 작성</span>하러 가기</button>
+                         <button class="review_instar_btn">
+                            <span class="review_bold"><svg width="33" height="37" viewBox="0 0 33 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17.0372 35.3315L17.0195 35.3349L16.9053 35.396L16.8731 35.403L16.8506 35.396L16.7364 35.3349C16.7193 35.3291 16.7064 35.332 16.6978 35.3437L16.6914 35.3611L16.6641 36.1076L16.6721 36.1425L16.6882 36.1651L16.8555 36.2942L16.8796 36.3012L16.8989 36.2942L17.0661 36.1651L17.0854 36.1372L17.0919 36.1076L17.0645 35.3628C17.0602 35.3442 17.0511 35.3338 17.0372 35.3315ZM17.4634 35.1344L17.4425 35.1379L17.145 35.3001L17.1289 35.3175L17.124 35.3367L17.153 36.0866L17.161 36.1076L17.1739 36.1198L17.4972 36.282C17.5176 36.2878 17.5331 36.2831 17.5438 36.268L17.5503 36.2436L17.4956 35.1727C17.4902 35.1518 17.4795 35.139 17.4634 35.1344ZM16.3134 35.1379C16.3064 35.1332 16.2979 35.1317 16.2898 35.1336C16.2817 35.1356 16.2746 35.1409 16.27 35.1483L16.2604 35.1727L16.2057 36.2436C16.2068 36.2645 16.2159 36.2785 16.233 36.2855L16.2572 36.282L16.5804 36.1198L16.5965 36.1058L16.6029 36.0866L16.6303 35.3367L16.6255 35.3158L16.6094 35.2983L16.3134 35.1379Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.00012207 5.23224C0.00012207 3.84456 0.508469 2.51372 1.41333 1.53249C2.3182 0.551252 3.54545 0 4.82512 0H27.3418C28.6215 0 29.8487 0.551252 30.7536 1.53249C31.6584 2.51372 32.1668 3.84456 32.1668 5.23224V26.1612C32.1668 27.5489 31.6584 28.8797 30.7536 29.8609C29.8487 30.8422 28.6215 31.3934 27.3418 31.3934H4.82512C3.54545 31.3934 2.3182 30.8422 1.41333 29.8609C0.508469 28.8797 0.00012207 27.5489 0.00012207 26.1612V5.23224ZM4.82512 3.48816C4.39857 3.48816 3.98948 3.67191 3.68786 3.99899C3.38624 4.32607 3.21679 4.76968 3.21679 5.23224V26.1612C3.21679 26.6237 3.38624 27.0674 3.68786 27.3944C3.98948 27.7215 4.39857 27.9053 4.82512 27.9053H27.3418C27.7683 27.9053 28.1774 27.7215 28.4791 27.3944C28.7807 27.0674 28.9501 26.6237 28.9501 26.1612V5.23224C28.9501 4.76968 28.7807 4.32607 28.4791 3.99899C28.1774 3.67191 27.7683 3.48816 27.3418 3.48816H4.82512ZM22.5168 6.97632C22.5168 6.51376 22.6862 6.07014 22.9879 5.74307C23.2895 5.41599 23.6986 5.23224 24.1251 5.23224H25.7335C26.16 5.23224 26.5691 5.41599 26.8707 5.74307C27.1723 6.07014 27.3418 6.51376 27.3418 6.97632C27.3418 7.43887 27.1723 7.88249 26.8707 8.20957C26.5691 8.53664 26.16 8.72039 25.7335 8.72039H24.1251C23.6986 8.72039 23.2895 8.53664 22.9879 8.20957C22.6862 7.88249 22.5168 7.43887 22.5168 6.97632ZM11.2585 15.6967C11.2585 14.309 11.7668 12.9782 12.6717 11.997C13.5765 11.0157 14.8038 10.4645 16.0835 10.4645C17.3631 10.4645 18.5904 11.0157 19.4952 11.997C20.4001 12.9782 20.9085 14.309 20.9085 15.6967C20.9085 17.0844 20.4001 18.4152 19.4952 19.3965C18.5904 20.3777 17.3631 20.9289 16.0835 20.9289C14.8038 20.9289 13.5765 20.3777 12.6717 19.3965C11.7668 18.4152 11.2585 17.0844 11.2585 15.6967ZM16.0835 6.97632C13.9507 6.97632 11.9052 7.89507 10.3971 9.53046C8.88903 11.1659 8.04179 13.3839 8.04179 15.6967C8.04179 18.0095 8.88903 20.2276 10.3971 21.863C11.9052 23.4984 13.9507 24.4171 16.0835 24.4171C18.2162 24.4171 20.2617 23.4984 21.7698 21.863C23.2779 20.2276 24.1251 18.0095 24.1251 15.6967C24.1251 13.3839 23.2779 11.1659 21.7698 9.53046C20.2617 7.89507 18.2162 6.97632 16.0835 6.97632Z" fill="white"/>
+</svg>
+인스타그램 후기</span> 보러가기</button>
+                    </div>
+                    <div class="review_word"><span class="review_bold">포토 리뷰 이벤트</span>&nbsp;사은품 증정 기회 놓치지 마세요</div>
+            </section>
+            <section id="yeseul" class="section_p">
+
+                <div class="container_1450 px-3 px-xl-0">
+                    <div class="img3list ">
+                      <ul class="d-flex flex-wrap w-100">
+                        <li class="col-xl col-6 d-flex p-1"><img src="./img/yesul/reviewThumb1.jpg" class="img-fluid w-100" alt=""></li>
+                        <li class="col-xl col-6 d-flex p-1"><img src="./img/yesul/reviewThumb2.jpg" class="img-fluid w-100" alt=""></li>
+                        <li class="col-xl col-6 d-flex p-1"><img src="./img/yesul/reviewThumb3.jpg" class="img-fluid w-100" alt=""></li>
+                        <li class="col-xl col-6 d-flex res_text p-1">
+                            <div class="img3title d-flex flex-column w-100 h-100 ps-xl-4 justify-content-center align-items-center align-items-xl-start">
+                                <div class="d-flex flex-column">
+                                    <p class="justify-content:center">다양한 고객님들의</p>
+                                </div>
+                                <div class="content-container d-flex flex-column align-items-center align-items-xl-start">
+                                    <h3 class="mt-1"><span class="d-xl-block ">집들이 </span> 구경해보세요</h3>
+                                    <button class="rounded-pill mt-3 mainColor-bg text-white">구경하러 가기</button>
+                                </div>
+                            </div> 
+                        </li>
+                      </ul>
+
+                    </div>
+
+                   
+
+                </div>
+            </section>
+            <section id="lineup" class="section_p container_1920 mb-0 pb-0">
+                <div class="d-flex flex-row">
+                        <!-- 첫 번째 박스 -->
+                        <div class="lineup_picture1_wrapper col">
+                            <div class="lineup_picture1 bg-no-repeat bg-cover py-3 py-xl-10 h-100">                        
+                                <div class="lineup_picture1_content h-100 text-center d-flex align-items-center justify-content-center position-relative"> 
+                                        <p class="m-0">몬까사의 다양한<br>
+                                        <strong>제품 라인업</strong>
+                                        </p>
+                                        <a href=""><img src="./img/lineup_picture1_arrow.png"></a>
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 두 번째 박스 -->
+                        <div class="col d-flex flex-column">                            
+                            <div class="lineup_picture2_wrapper "> 
+                                <div class="lineup_picture2 bg-no-repeat bg-cover py-1 py-xl-5 ">
+                                    <!-- before -->
+                                    <div class="lineup_picture2_content py-3 py-xl-5 text-center d-flex  
+                                    align-items-center justify-content-center position-relative ">
+                                        <p class="mb-0">
+                                            정성을 다하는<br>
+                                            <strong>소파케어 받으러가기</strong>
+                                        </p>
+                                        <a href=""><img src="./img/lineup_picture2_arrow.png"></a>
+                                    </div>
+                                    <!-- after자리 -->
+                                </div>
+                                
+                            </div>
+                            <div class="lineup_picture3_wrapper text-white">
+                                <div class="lineup_picture3 bg-no-repeat bg-cover py-1 py-xl-5 ">
+
+                                    <div class="lineup_picture2_content py-3 py-xl-5 text-center d-flex 
+                                    align-items-center justify-content-center position-relative ">
+                                        <p class="mb-0">
+                                            내 가구에 어울리는<br>
+                                            <strong>인테리어 보러가기</strong>
+                                        </p>     
+                                        <a href=""><img src="./img/lineup_picture2_arrow.png"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </div>  
+            </section>
+        </main>
+        <section id="footer" class="mainColor-bg d-flex flex-column justify-content-between text-white">
+                    <div class="footer_wrapper px-5 py-5 d-flex flex-column flex-xl-row justify-content-xl-between align-items-xl-center">
+                        <div class="lineup_logo pe-5 pb-5 pe-xl-none pb-xl-none d-none d-xl-block">
+                            <svg width="289" height="44" viewBox="0 0 289 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_269_779)">
+                                <path d="M241.886 5.53137L257 41.6889H251.946L248.933 34.4962H229.25L226.237 41.6403H223.175L238.289 5.53137H241.886ZM229.882 32.9897H248.301L239.067 11.023L229.882 32.9897Z" fill="white"/>
+                                <path d="M204.06 11.5576C204.06 12.9508 204.352 14.2306 204.935 15.3969C205.551 16.5309 206.345 17.5191 207.317 18.3614C208.288 19.2038 209.358 20.0138 210.524 20.7914C211.69 21.569 212.857 22.3465 214.023 23.1241C215.19 23.9017 216.259 24.7117 217.231 25.5541C218.203 26.364 218.98 27.336 219.563 28.47C220.179 29.5716 220.487 30.7703 220.487 32.0663C220.487 34.1722 219.904 36.0352 218.737 37.6552C217.603 39.2751 216.178 40.4739 214.461 41.2515C212.743 41.9967 210.913 42.3692 208.969 42.3692C207.9 42.3692 206.831 42.2234 205.761 41.9319C204.725 41.6727 203.834 41.3487 203.088 40.9599C202.343 40.5711 201.663 40.1823 201.047 39.7935C200.464 39.3723 200.01 39.0321 199.686 38.7729L199.249 38.3355L200.513 35.1766C201.29 36.2134 202.295 37.153 203.526 37.9954C204.789 38.8377 206.085 39.4371 207.414 39.7935C208.774 40.1175 210.038 40.2309 211.204 40.1337C212.403 40.0041 213.375 39.4533 214.12 38.4813C214.898 37.477 215.287 36.1162 215.287 34.399C215.287 33.2003 214.995 32.0825 214.412 31.0457C213.829 30.009 213.067 29.1018 212.128 28.3242C211.221 27.5466 210.2 26.8014 209.066 26.0887C207.964 25.3435 206.847 24.5983 205.713 23.8531C204.579 23.1079 203.542 22.3141 202.602 21.4718C201.695 20.6294 200.95 19.625 200.367 18.4586C199.784 17.2923 199.492 16.0125 199.492 14.6193C199.492 13.9714 199.573 13.291 199.735 12.5782C199.897 11.833 200.205 11.0392 200.658 10.1969C201.144 9.32208 201.744 8.5607 202.457 7.91271C203.202 7.23233 204.206 6.66535 205.47 6.21176C206.733 5.75817 208.159 5.53137 209.746 5.53137C211.334 5.53137 212.76 5.64477 214.023 5.87156C215.287 6.09836 216.259 6.37375 216.939 6.69774C217.619 6.98934 218.17 7.29713 218.591 7.62112C219.045 7.94511 219.353 8.2205 219.515 8.4473L219.709 8.78749L217.522 12.0922C216.939 11.0878 216.097 10.1969 214.995 9.41928C213.894 8.6417 212.727 8.10711 211.496 7.81552C210.265 7.52392 209.082 7.41053 207.948 7.47532C206.814 7.54012 205.875 7.92891 205.13 8.64169C204.417 9.35448 204.06 10.3265 204.06 11.5576Z" fill="white"/>
+                                <path d="M180.805 5.53137L195.919 41.6889H190.865L187.852 34.4962H168.169L165.156 41.6403H162.095L177.209 5.53137H180.805ZM168.801 32.9897H187.22L177.986 11.023L168.801 32.9897Z" fill="white"/>
+                                <path d="M158.49 35.9542L159.316 36.586C159.252 36.748 159.154 36.9586 159.025 37.2178C158.895 37.477 158.523 37.9468 157.907 38.6271C157.292 39.3075 156.563 39.9069 155.72 40.4253C154.91 40.9113 153.728 41.3649 152.172 41.7861C150.65 42.2072 148.965 42.4178 147.118 42.4178C144.364 42.4178 141.837 42.0452 139.537 41.3001C137.236 40.5549 135.195 39.4533 133.413 37.9954C131.664 36.505 130.287 34.561 129.282 32.1635C128.278 29.7336 127.776 26.9796 127.776 23.9017C127.776 21.4394 128.148 19.1714 128.894 17.0979C129.639 15.0243 130.611 13.291 131.81 11.8978C133.008 10.5046 134.353 9.32208 135.843 8.3501C137.366 7.34573 138.873 6.63295 140.363 6.21176C141.853 5.75817 143.295 5.53137 144.688 5.53137C146.535 5.53137 148.301 5.66097 149.986 5.92016C151.67 6.17936 153.047 6.48715 154.116 6.84354C155.186 7.19993 156.125 7.57252 156.935 7.96131C157.745 8.3177 158.328 8.6093 158.685 8.83609L159.219 9.22488L158.004 13.3072C157.972 13.21 157.923 13.0966 157.859 12.967C157.794 12.8374 157.599 12.5782 157.275 12.1894C156.984 11.8006 156.627 11.4442 156.206 11.1202C155.817 10.7638 155.25 10.3751 154.505 9.95386C153.792 9.53267 152.982 9.17628 152.075 8.88469C151.2 8.5607 150.099 8.3015 148.771 8.10711C147.475 7.88031 146.081 7.76692 144.591 7.76692C142.809 7.76692 141.205 8.12331 139.78 8.83609C138.387 9.51647 137.269 10.4075 136.426 11.509C135.584 12.5782 134.888 13.8418 134.337 15.2997C133.786 16.7577 133.397 18.1833 133.17 19.5764C132.976 20.9372 132.879 22.3303 132.879 23.7559C132.879 28.6158 134.272 32.6657 137.058 35.9056C139.877 39.1131 143.344 40.7169 147.458 40.7169C149.176 40.7169 150.731 40.5549 152.124 40.2309C153.517 39.8745 154.586 39.4695 155.331 39.0159C156.077 38.5623 156.708 38.1087 157.227 37.6552C157.745 37.1692 158.085 36.7642 158.247 36.4402L158.49 35.9542Z" fill="white"/>
+                                <path d="M116.395 5.53137H119.554L119.117 41.6403L92.5334 16.9521L92.2904 41.6403H89.1801L89.5203 5.62857L116.152 32.2121L116.395 5.53137Z" fill="white"/>
+                                <path d="M62.2894 4.80225C65.6913 4.80225 68.8178 5.64463 71.669 7.32938C74.5525 8.98174 76.8204 11.2497 78.4728 14.1332C80.1576 17.0167 80.9999 20.1433 80.9999 23.5128C80.9999 26.9147 80.1576 30.0574 78.4728 32.9409C76.8204 35.7921 74.5525 38.06 71.669 39.7448C68.8178 41.3971 65.6913 42.2233 62.2894 42.2233C58.8875 42.2233 55.7448 41.3971 52.8613 39.7448C50.0101 38.06 47.7422 35.7921 46.0574 32.9409C44.4051 30.0574 43.5789 26.9147 43.5789 23.5128C43.5789 20.1433 44.4051 17.0167 46.0574 14.1332C47.7422 11.2497 50.0101 8.98174 52.8613 7.32938C55.7448 5.64463 58.8875 4.80225 62.2894 4.80225ZM75.0223 24.1932C75.1843 21.0504 74.7631 18.1345 73.7587 15.4454C72.7543 12.7562 71.3126 10.6017 69.4334 8.98174C67.5543 7.32938 65.4645 6.43841 63.1642 6.30881C60.8638 6.21161 58.6931 6.87579 56.652 8.30136C54.6432 9.72692 52.9909 11.7357 51.6949 14.3276C50.4313 16.8871 49.7185 19.7383 49.5565 22.881C49.3945 25.9913 49.8157 28.9072 50.8201 31.6288C51.8245 34.3179 53.2662 36.4886 55.1454 38.141C57.0245 39.761 59.1143 40.6357 61.4146 40.7653C63.715 40.8625 65.8695 40.1984 67.8783 38.7728C69.9194 37.3472 71.5718 35.3385 72.8353 32.7465C74.1313 30.1546 74.8603 27.3035 75.0223 24.1932Z" fill="white"/>
+                                <path d="M35.5229 6.98934L39.022 41.6403H34.5509L31.9266 15.3969L20.6516 41.6403H16.7637L6.80099 15.6399L4.17666 41.6403H1.01774L4.32246 9.17628L2.96169 5.53137H7.72437L19.4367 36.2458L32.6069 5.53137H36.1546L35.5229 6.98934Z" fill="white"/>
+                                </g>
+                                <g clip-path="url(#clip1_269_779)">
+                                <path d="M286.21 0L284.615 2.39461L277.5 13.0811L270.385 2.39461L268.79 0H266V24H268.194V3.10188L270.385 6.39573V24H284.615V6.39573L286.809 3.10188V24H289V0H286.21Z" fill="#713131"/>
+                                <g clip-path="url(#clip2_269_779)">
+                                <path d="M286.21 0L284.615 2.39461L277.5 13.0811L270.385 2.39461L268.79 0H266V24H268.194V3.10188L270.385 6.39573V24H284.615V6.39573L286.809 3.10188V24H289V0H286.21Z" fill="white"/>
+                                </g>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_269_779">
+                                <rect width="257" height="40" fill="white" transform="translate(0 4)"/>
+                                </clipPath>
+                                <clipPath id="clip1_269_779">
+                                <rect width="23" height="24" fill="white" transform="translate(266)"/>
+                                </clipPath>
+                                <clipPath id="clip2_269_779">
+                                <rect width="23" height="24" fill="white" transform="translate(266)"/>
+                                </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="footer_d-flex-custom gap-3 gap-xl-5 d-flex justify-content-start flex-wrap flex-xl-nowrap flex-xl-row justify-content-xl-between">    
+                            <div class="d-xl-flex w-100 justify-content-xl-end gap-xl-5">
+                                <div class="">
+                                    <strong>고객센터 1588-0000</strong>
+                                    <p>평일 09:00 ~ 17:30 (주말 및 공휴일 휴무)</p>
+                                    <P>점심 12:00 ~ 13:00</P>
+                                </div>
+                                <div class="d-flex flex-column pt-3 pt-xl-0">
+                                    <a href="" class="text-white">브랜드소개</a>
+                                    <a href="" class="text-white">이용약관 | 이용안내</a>
+                                    <a href="" class="text-white">개인정보처리방침</a>
+                                </div>
+                            </div>
+                            <div class="">
+                                <p class="pb-2">(주)MONCASA </p>
+                                <p>| 대표: 아무개 | 서울 구로구 새말로97 | 사업자등록번호: 123-45-67980 사업자정보확인</p>
+                                <p>통신판매업신고번호: 2025-그린아트-0725 | 이메일:moncasa@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center pb-5">
+                        <p>Copyright 2025.MONCASA All Rights Reserved.</p>
+                    </div>       
+        </section>
+        <script src="./vendor/bt.js"></script>
+        <!-- event_swiper -->
+        <script>
+            var event_swiper = new Swiper(".event_Swiper", {
+                slidesPerView: 3,
+                spaceBetween: 0,
+                loop:true,
+                pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                },
+                breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    pagination: {
+                        el: ".event_Swiper .swiper-pagination",
+                    },
+                },
+                769: {
+                    slidesPerView: 3,
+                    spaceBetween: 0,             
+                },
+                },
+            });
+        </script>
+        <!-- swiper script -->
+        <script>
+            const swiper = new Swiper(".premium_mySwiper", {
+                slidesPerView: "auto",
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                scrollbar: {
+                    el: ".swiper-scrollbar",
+                    hide: false,
+                },
+                loop: true,
+                breakpoints: {
+                    0: {spaceBetween: 20},
+                    426: {spaceBetween: 35},
+                    769: {spaceBetween: 50}
+                    }
+            });
+        </script>
+        <!-- review swiper -->
+        <script>
+            var review_swiper = new Swiper(".review_swiper", {
+                slidesPerView: 4.5,
+                spaceBetween: 30,
+                loop:true,
+                pagination: {
+                    el: ".review_swiper .swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".review_swiper .swiper-button-next",
+                    prevEl: ".review_swiper .swiper-button-prev",
+                },
+                breakpoints: {
+                320: {
+                    slidesPerView: 1.5,
+                    spaceBetween: 30,
+                },
+                991: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                1450: {
+                    slidesPerView: 4.5,
+                    spaceBetween: 30,
+                },
+                },                
+            });
+        </script>
+        <!-- taste swiper -->
+        <script>
+        /* 1) 스와이퍼 초기화 (그대로) */
+        const swiper222 = new Swiper("#taste .mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            navigation: {
+            nextEl: "#taste .swiper-button-next",
+            prevEl: "#taste .swiper-button-prev"
+            },
+            scrollbar: {
+            el: "#taste .swiper-scrollbar",
+            hide: false
+            },
+            pagination: {
+            el: "#taste .swiper-pagination",
+            type: "fraction"
+            },
+            allowTouchMove: false, // 기본은 PC에서 드래그 금지
+        });
+        (() => {
+            const container = document.querySelector('#taste .mySwiper');
+            if (!container) return;
+
+            const wrapper = container.querySelector('.swiper-wrapper');
+            const nextBtn = document.querySelector('#taste .swiper-button-next');
+            const swiper = container.swiper || window.swiper222;
+
+            // Next 버튼 비활성화 함수
+            const disableNext = () => {
+                nextBtn.classList.add('disabled');
+                nextBtn.setAttribute('disabled', 'true');
+            };
+
+            // Next 버튼 활성화 함수 (사실 바로 넘어가니까 표시만 살짝 켰다 꺼져도 됨)
+            const enableNext = () => {
+                nextBtn.classList.remove('disabled');
+                nextBtn.removeAttribute('disabled');
+            };
+
+            // 처음엔 비활성화
+            disableNext();
+
+            // 슬라이드 바뀔 때마다 next 버튼 다시 비활성화
+            swiper.on('slideChange', () => {
+                disableNext();
+            });
+
+            // 옵션 버튼 클릭 이벤트
+            wrapper.addEventListener('click', (e) => {
+                const btn = e.target.closest('.option-btn');
+                if (!btn || !container.contains(btn)) return;
+                e.preventDefault();
+
+                const slideEl = btn.closest('.swiper-slide');
+                if (slideEl) {
+                slideEl.querySelectorAll('.option-btn').forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-pressed', 'false');
+                });
+                btn.classList.add('active');
+                btn.setAttribute('aria-pressed', 'true');
+                }
+
+                // Next 버튼 잠깐 활성화 → 자동 이동
+                enableNext();
+                if (!swiper.animating) {
+                swiper.slideNext();
+                }
+            });
+        })();
+        </script>
+    </body>
+</html>

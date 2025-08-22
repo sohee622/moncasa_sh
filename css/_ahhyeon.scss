@@ -1,0 +1,267 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 1199px) {
+  #minimal {
+    .container_1450 {
+      gap: 2rem;
+    }
+
+    .product_set li {
+      width: 100%;
+    }
+
+    .bottom-banner {
+      width: 100%;
+      background-image: none !important;
+      background-color: #713131cc;
+    }
+  }
+
+  .product_text {
+    @include flex-center;
+  }
+
+  .product_price_set {
+    flex-direction: column;
+  }
+}
+
+#minimal {
+  .prod_name {
+    font-size: clamp(10px, 1vw + 10px, 25px);
+  }
+
+  .event_main_title1 {
+    font-size: clamp(60px, 3vw + 60px, 120px);
+    font-family: $mainFont700;
+    letter-spacing: -1.1px;
+  }
+
+  .event_serve_title1 {
+    font-size: clamp(14px, 1vw + 14px, 28px);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    font-family: $mainFont700;
+    line-height: 30px;
+    letter-spacing: -0.264px;
+  }
+
+  .event_title1 {
+    font-size: clamp(30px, 2vw + 30px, 64px);
+    font-family: $mainFont700;
+    text-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+    line-height: normal;
+    letter-spacing: -2.0px;
+  }
+
+  .percent {
+    margin-left: auto;
+    margin-top: auto;
+    font-size: clamp(50px, 2vw + 50px, 100px);;
+    font-family: $mainFont700;
+  }
+
+  .badge {
+    font-size: clamp(8px, 1vw + 8px, 15px);
+    width: clamp(25px, 1vw + 25px, 60px);
+    height: clamp(25px, 1vw + 25px, 60px);
+    z-index: 10;
+    @include flex-center;
+  }
+
+  .product-text {
+    flex-shrink: 0;
+  }
+
+  .prod_price {
+    line-height: normal;
+  }
+  
+  .bottom-banner {
+    background-image: url(../img/product/mi_bottom_bg_img.jpg);
+    background-size: cover;
+    background-position: center 46%;
+    background-repeat: no-repeat;
+    font-size: clamp(15px, 1vw + 15px, 30px);
+    font-family: $mainFont600;
+  }
+
+  .tag {
+    background-color: #713131cc;
+   }
+
+  .bg-img {
+    background: url("../img/product/event1_main.jpg") no-repeat center center;
+    background-size: cover;
+  }
+
+  .swiper-scrollbar {
+    background: #e0e0e0;
+    height: 3px;
+    width: calc(70% - 2 * var(--swiper-scrollbar-sides-offset, 1%));
+  }
+}
+
+// 취향찾기
+
+@media (max-width: 1199px){
+  #taste {
+    background-color: white !important; 
+  
+  .icon,
+  .progress-fixed-wrapper {
+    display: none !important;
+  }
+
+  .options {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    width: auto !important;
+    }
+  }
+}
+
+.slide_mid_title {
+  font-size: clamp(16px, 1vw + 16px, 25px);
+  color: #999;
+  letter-spacing: -0.03rem;
+
+  @media (max-width:450px) {
+    padding-left: 10px !important;
+    margin-left: 10px !important;
+  }
+}
+
+.option-btn {
+  padding: 22px 90px !important;
+
+  @media (max-width:1199px) {
+    padding: 22px min( 11vw, 70px ) !important;
+    
+  }
+    @media (max-width:450px) {
+    padding: 14px 20px !important;
+    
+  }
+}
+
+#taste {
+  .slide-title {
+    font-size: clamp(16px, 2vw + 16px, 38px);
+    font-family: $mainFont700;
+  }
+
+  .slide-question {
+    font-family: $mainFont700;
+    font-size: clamp(18px, 1vw + 18px, 30px);
+    line-height: normal;
+  }
+
+  .swiper-scrollbar {
+    width: 500px;
+    height: 2px;
+    background: #ddd;
+  }
+
+  .swiper-pagination {
+    font-size: 14px;
+    color: #333;
+    min-width: 40px;
+    white-space: nowrap;
+  }
+
+  .option-btn {
+    border: 2px solid #909090;
+    font-size: clamp(18px, 1vw + 18px, 23px);
+    font-family: $mainFont500;
+    @include flex-center;
+    width: 100%;
+
+    &:hover {
+      background-color: #eee !important;
+    }
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: black;
+    top: calc(50% + 6.5rem);
+    z-index: 10;
+
+    @media (max-width:450px) {
+      
+    }
+  }
+
+  .swiper-button-prev {
+    left: 20px;
+  }
+
+  .swiper-button-next {
+    right: 20px;
+    pointer-events: none;
+  }
+
+  .top_fixed_box {
+    z-index: 10;
+  }
+
+  .progress-fixed-wrapper {
+    gap: 10px;
+    width: 420px;
+    top: calc(50% + 3.5rem);
+    left: 108px;
+  }
+
+  .taste_icon {
+    width: 68.333px;
+    height: 50px;
+  }
+
+  .q_num {
+    font-family: $mainFont700;
+  }
+
+  .icon_text {
+    font-size: 18px;
+    font-family: $mainFont500;
+    line-height: normal;
+  }
+
+  .position-unset {
+    position: unset !important;
+  }
+}
+
+// 퀵메뉴
+
+#quick {
+  top: calc(55% + 3rem);
+  right: 10px;
+  z-index: 1000;
+
+  ul {
+    list-style: none;
+  }
+
+  a.quick-btn {
+    font-family: $mainFont500;
+    width: 93px;
+    height: 93px;
+    font-size: 17px;
+    transition: background-color 0.3s ease;
+
+    @include flex-center;
+
+    &:hover,
+    &:focus {
+      background-color: #a8a39f;
+      outline: none;
+    }
+  }
+}
+

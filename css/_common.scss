@@ -1,0 +1,155 @@
+$basicText: #000;
+$mainColor: #713131;
+
+$mainFont100: "Pretendard-100";
+$mainFont200: "Pretendard-200";
+$mainFont300: "Pretendard-300";
+$mainFont400: "Pretendard-400";
+$mainFont500: "Pretendard-500";
+$mainFont600: "Pretendard-600";
+$mainFont700: "Pretendard-700";
+$mainFont800: "Pretendard-800";
+$mainFont900: "Pretendard-900";
+
+$mainMaxwidth: 1450px;//1450
+$smMaxwidth: 1280px;//1280
+$bigMaxwidth: 1650px;//1650
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+
+// Reset
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  word-break: keep-all;
+}
+h1, h2, h3, h4, h5, ul, li, dl, dt, dd, p {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: $basicText;
+}
+
+* {
+  font-family: $mainFont400;
+}
+
+
+// 유틸리티 클래스
+.line-height-1 { line-height: 1; }
+
+.mainColor-bg {
+  background-color: $mainColor !important;
+}
+.mainColor-text{
+  color: $mainColor !important;
+}
+
+// 컨테이너
+.container_1280 {
+  max-width: $smMaxwidth;
+  margin: 0 auto;
+}
+
+.container_1450 {
+  max-width: $mainMaxwidth;
+  margin: 0 auto;
+}
+
+.container_1650 {
+  max-width: $bigMaxwidth;
+  margin: 0 auto;
+}
+
+.fs-25{
+  font-size: 25px;
+}
+
+
+// 섹션 공통 패딩
+.section_p {
+  padding: 3rem 0;
+
+  @media (min-width: 1280px) {
+    padding-top: 50px;
+  }
+  @media (min-width: 1450px) {
+    padding-top: 50px;
+  }
+  @media (min-width: 1650px) {
+   padding-top: 100px;
+  }
+}
+
+// 태그 배지 스타일
+.tag {
+  font-family: $mainFont500;
+  border-radius: 30px;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: clamp(16px,1vw + 16px,25px);
+  display: inline-block;
+}
+
+// 상품 텍스트
+.product_card {
+  max-width: 300px;
+  flex-wrap: wrap;
+}
+  .prod_name {
+    font-family: $mainFont700;
+    font-size: clamp(14px,1vw + 13px,25px);
+    text-wrap: nowrap; 
+  }
+
+  .prod_cost {
+    font-family: $mainFont500;
+    font-size: clamp(12px,1vw + 11px,20px);
+    color: #adadad;
+    text-decoration: line-through;
+  }
+
+  .prod_price {
+    font-family: $mainFont700;
+    font-size: clamp(14px,1vw + 13px,25px);
+    color: $mainColor;
+  }
+
+
+// 아이콘 그룹
+.icon_group {
+  @include flex-center;
+  bottom: clamp(2px, 5px, 10px);
+  right: clamp(2px, 5px, 10px);
+  gap: clamp(2px, 3px, 5px);
+  font-family: $mainFont700; 
+  font-size: clamp(9px, 1vw + 8px, 15px);
+
+  strong {
+    width: clamp(30px, 1vw + 28px, 55px);
+    height: clamp(30px, 1vw + 28px, 55px);
+    border-radius: 50%;
+    @include flex-center;
+  }
+
+  .eco {
+    background-color: #777255;
+  }
+
+  .sale {
+    background-color: $mainColor;
+  }
+}

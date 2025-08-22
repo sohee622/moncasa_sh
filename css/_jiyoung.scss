@@ -1,0 +1,156 @@
+#upcycling {
+    // 공통 배경
+    .img_bg {
+      background-color: #f5f5f5;
+    }
+  
+    // 기획전 이미지 영역
+    .event {
+      min-width: 375px;
+      background-image: url('../img/product/event2_main.jpg');
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      background-position: center;
+      height:77vw;
+
+      @media (min-width:1200px) {
+        // width: clamp(500px, 50vw , 670px);
+        height: auto;
+        background-position: center top;
+        background-size: 100%;
+      }      
+      
+  
+      &_main_title2 {
+        font-size: clamp(40px, 2vw + 38px, 100px);
+        margin-bottom: 20px;
+        font-family: $mainFont700;
+      }
+  
+      &_title2 {
+        font-size: clamp(16px, 1vw + 20px, 36px);
+      }
+  
+      &_serve_title2 {
+        font-size: clamp(14px, 1vw + 14px, 24px);
+        line-height: 1.5;
+      }
+    }     
+  
+    .product_card { 
+      max-width: none; 
+      &1 img,
+      &2 img,
+      &4 img {
+        transform: translateY(-20px);
+      }  
+      &3 img {
+        transform: translateY(-40px);
+      }
+    }      
+  
+    // 텍스트 배지
+    
+  
+    .tag2 {
+      background-color: #1d220c95;
+      border-radius: 50px;      
+      font-size: clamp(13px,1vw + 12px,25px);
+      line-height: var(--bs-body-line-height);
+    }
+  
+    // 할인 퍼센트
+    .percent {
+      font-size: clamp(40px,2vw + 38px,100px);
+      font-family: $mainFont700;
+    }
+  
+    // // 기획전이미지 텍스트세트
+    // .ecombt1 {
+      
+    // }
+  
+
+    // .ecombt2 {      
+    //   width: clamp(375px,3vw + 374px,667px);
+    //   height: clamp(73px,1vw + 72px,140px);
+    // }
+  
+    // 광고 배너
+    .banner_set {
+      margin-top: clamp(2rem, 1vw + 1.5rem, 70px);
+      gap: clamp(5px, 1vw + 4px, 10px);
+      // @media (min-width:991px) {
+      //   gap: 7px;                  
+      // }      
+      // @media (min-width:1450px) {
+      //   gap: 10px;          
+      // }
+  
+      strong {
+        font-size: clamp(14px,1vw + 14px,24px);
+        line-height: 1.5;        
+      }
+  
+      span {
+        font-size: 15px;
+        line-height: 1.5;
+        display: none;
+        @media (min-width:991px) {
+          display: block;          
+        }
+      }
+    }  
+    .banner_eco1,
+    .banner_eco2 {
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+    
+
+      @media (min-width:1200px) {         
+       // background-position: center;
+      }      
+      @media (min-width:1450px) {        
+        //background-position: center;
+      }
+    }
+  
+    .banner_eco1 {
+        background-image: url(../img/eco_banner2.jpg);
+      }
+    
+      .banner_eco2 {
+        background-image: url(../img/eco_banner1.jpg);
+      }
+
+    
+    .h300 {
+      height: 300px !important;
+    }
+    .swiper{
+      padding-bottom: 24px; /* 바 공간 확보 (원하는 만큼) */
+      // @media (max-width:1199px) {
+      //   width:100%;
+        
+      // }
+    }
+
+    /* 바 전체 (옅은 회색) */
+    .swiper-scrollbar {
+      background: #e0e0e0;   /* 회색 라인 */
+      height: 4px;           /* 높이 */
+      border-radius: 2px;
+      position: relative;   /* 절대 위치 → 상대 위치 */
+      bottom: auto;         /* 기본 absolute 해제 */
+      margin-top: 8px;      /* 슬라이드와 간격 */
+    }
+    
+
+    /* 안쪽에 움직이는 부분 (진한색) */
+    .swiper-scrollbar-drag {
+      background: #777;       /* 원하는 색 (예: 검정, 브랜드 컬러) */
+      border-radius: 2px;
+    }
+  }
+  
