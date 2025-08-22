@@ -1354,6 +1354,11 @@ ol, ul {
     margin: 0 0;
   }
 }
+@media (max-width: 575px) {
+  #event {
+    margin-top: 158px;
+  }
+}
 @media (max-width: 425px) {
   .event3 {
     height: 287px;
